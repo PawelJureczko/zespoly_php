@@ -37,9 +37,9 @@
 		<td>{$b["musictype"]}</td>
 		<td>{$b["ishired"]}</td>
 		<td>
-			<a class="button-small pure-button button-secondary" href="{$conf->action_url}bandEdit/{$p['idband']}">Edytuj</a>
+			<a class="button-small pure-button button-secondary" href="{$conf->action_url}BandEdit/{$b['idband']}">Edytuj</a>
 			&nbsp;
-			<a class="button-small pure-button button-warning" href="{$conf->action_url}bandDelete/{$p['idband']}">Usuń</a>
+			<a class="button-small pure-button button-warning" href="{$conf->action_url}BandDelete/{$b['idband']}">Usuń</a>
 		</td>
 	</tr>
 {/strip}
