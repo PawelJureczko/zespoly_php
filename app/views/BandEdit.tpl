@@ -3,7 +3,7 @@
 {block name=top}
 
 <div class="bottom-margin">
-<form action="{$conf->action_root}personSave" method="post" class="pure-form pure-form-aligned">
+<form action="{$conf->action_root}bandSave" method="post" class="pure-form pure-form-aligned">
 	<fieldset>
 		<legend>Dane zespolu</legend>
 		<div class="pure-control-group">

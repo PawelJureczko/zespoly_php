@@ -3,7 +3,7 @@
 {block name=top}
 
 <div class="bottom-margin">
-<form action="{$conf->action_root}personSave" method="post" class="pure-form pure-form-aligned">
+<form action="{$conf->action_root}BandSave" method="post" class="pure-form pure-form-aligned">
 	<fieldset>
 		<legend>Dane zespolu</legend>
 		<div class="pure-control-group">
@@ -20,7 +20,7 @@
         </div>
 		<div class="pure-controls">
 			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
-			<a class="pure-button button-secondary" href="{$conf->action_root}bandList">Powrót</a>
+			<a class="pure-button button-secondary" href="{$conf->action_root}BandList">Powrót</a>
 		</div>
 	</fieldset>
     <input type="hidden" name="id" value="{$form->id}">
