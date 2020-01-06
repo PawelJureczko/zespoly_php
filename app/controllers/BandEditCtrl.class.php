@@ -44,10 +44,9 @@ class BandEditCtrl {
 
         // 2. sprawdzenie poprawności przekazanych parametrów
 
-        /*$d = \DateTime::createFromFormat('Y-m-d', $this->form->ishired);
-        if ($d === false) {
-            Utils::addErrorMessage('Zły format daty. Przykład: 2015-12-20');
-        }*/
+        if ($this->form->ishired < 1 || $this->form->ishired > 2) {
+            Utils::addErrorMessage('Zła wartość');
+        }
 
         return !App::getMessages()->isError();
     }
