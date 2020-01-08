@@ -3,7 +3,7 @@
 use core\App;
 use core\Utils;
 
-App::getRouter()->setDefaultRoute('BandList'); #default action
+App::getRouter()->setDefaultRoute('loginShow'); #default action
 //App::getRouter()->setLoginRoute('login'); #action to forward if no permissions
 
 Utils::addRoute('loginShow', 'LoginCtrl');
