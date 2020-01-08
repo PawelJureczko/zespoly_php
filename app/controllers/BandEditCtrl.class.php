@@ -44,9 +44,7 @@ class BandEditCtrl {
 
         // 2. sprawdzenie poprawności przekazanych parametrów
 
-        if ($this->form->ishired < 1 || $this->form->ishired > 2) {
-            Utils::addErrorMessage('Zła wartość');
-        }
+
 
         return !App::getMessages()->isError();
     }
@@ -77,11 +75,6 @@ class BandEditCtrl {
                 $this->form->name = $record['name'];
                 $this->form->musictype = $record['musictype'];
                 $this->form->ishired = $record['ishired'];
-                if ($record['ishired'] == 1){
-                    $record['ishired'] = 'nie';
-                } else if ($record['ishired']== 2){
-                    $record['ishired'] = 'tak';
-                }
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)

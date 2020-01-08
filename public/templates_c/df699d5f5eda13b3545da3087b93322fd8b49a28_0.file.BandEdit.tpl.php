@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-01-06 21:31:57
+/* Smarty version 3.1.33, created on 2020-01-08 21:32:54
   from 'C:\xampp\htdocs\zespoly\app\views\BandEdit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e13993d03fbf7_24243954',
+  'unifunc' => 'content_5e163c76535d53_40686937',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'df699d5f5eda13b3545da3087b93322fd8b49a28' => 
     array (
       0 => 'C:\\xampp\\htdocs\\zespoly\\app\\views\\BandEdit.tpl',
-      1 => 1578342715,
+      1 => 1578515568,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e13993d03fbf7_24243954 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e163c76535d53_40686937 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19827237855e13993d03b678_60463401', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_450103225e163c764e71e6_59793122', 'top');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'top'} */
-class Block_19827237855e13993d03b678_60463401 extends Smarty_Internal_Block
+class Block_450103225e163c764e71e6_59793122 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_19827237855e13993d03b678_60463401',
+    0 => 'Block_450103225e163c764e71e6_59793122',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -62,8 +62,11 @@ BandSave" method="post" class="pure-form pure-form-aligned">
         </div>
 		<div class="pure-control-group">
             <label for="ishired">czy zajety</label>
-            <input id="ishired" type="text" placeholder="czy zajety" name="ishired" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->ishired;?>
+            <select id ="ishired" name ="ishired" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->ishired;?>
 ">
+                <option>tak</option>
+                <option>nie</option>
+            </select>
         </div>
 		<div class="pure-controls">
 			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>

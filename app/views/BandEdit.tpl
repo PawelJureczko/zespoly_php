@@ -16,7 +16,10 @@
         </div>
 		<div class="pure-control-group">
             <label for="ishired">czy zajety</label>
-            <input id="ishired" type="text" placeholder="czy zajety" name="ishired" value="{$form->ishired}">
+            <select id ="ishired" name ="ishired" value="{$form->ishired}">
+                <option>tak</option>
+                <option>nie</option>
+            </select>
         </div>
 		<div class="pure-controls">
 			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>

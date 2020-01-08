@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-01-06 21:29:05
+/* Smarty version 3.1.33, created on 2020-01-08 22:06:21
   from 'C:\xampp\htdocs\zespoly\app\views\BandList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e139891711d59_30673550',
+  'unifunc' => 'content_5e16444d9d3253_18205201',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c9b9ca3a21ae1e86d82a00e7e8f116ee7bf529f4' => 
     array (
       0 => 'C:\\xampp\\htdocs\\zespoly\\app\\views\\BandList.tpl',
-      1 => 1578342541,
+      1 => 1578517577,
       2 => 'file',
     ),
   ),
@@ -20,30 +20,30 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e139891711d59_30673550 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e16444d9d3253_18205201 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13721241735e139891640923_66551792', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13401136465e16444d9c9276_70815811', 'top');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_21069670745e13989169b4b3_59728034', 'bottom');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1437642575e16444d9cc729_91588469', 'bottom');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'top'} */
-class Block_13721241735e139891640923_66551792 extends Smarty_Internal_Block
+class Block_13401136465e16444d9c9276_70815811 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_13721241735e139891640923_66551792',
+    0 => 'Block_13401136465e16444d9c9276_70815811',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -55,7 +55,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 BandList">
 	<legend>Opcje wyszukiwania</legend>
 	<fieldset>
-		<input type="text" placeholder="nazwa zespolu" name="sf_name" value="<?php echo $_smarty_tpl->tpl_vars['searchForm']->value->name;?>
+		<input type="text" placeholder="rodzaj muzyki" name="sf_name" value="<?php echo $_smarty_tpl->tpl_vars['searchForm']->value->name;?>
 " /><br />
 		<button type="submit" class="pure-button pure-button-primary">Filtruj</button>
 	</fieldset>
@@ -67,12 +67,12 @@ BandList">
 }
 /* {/block 'top'} */
 /* {block 'bottom'} */
-class Block_21069670745e13989169b4b3_59728034 extends Smarty_Internal_Block
+class Block_1437642575e16444d9cc729_91588469 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'bottom' => 
   array (
-    0 => 'Block_21069670745e13989169b4b3_59728034',
+    0 => 'Block_1437642575e16444d9cc729_91588469',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
