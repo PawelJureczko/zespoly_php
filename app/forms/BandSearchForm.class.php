@@ -3,5 +3,5 @@
 namespace app\forms;
 
 class BandSearchForm {
-	public $name;
+	public $musictype;
 }

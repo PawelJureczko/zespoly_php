@@ -20,7 +20,7 @@ class BandListCtrl {
     public function validate() {
         // 1. sprawdzenie, czy parametry zostały przekazane
         // - nie trzeba sprawdzać
-        $this->form->name = ParamUtils::getFromRequest('sf_name');
+        $this->form->musictype = ParamUtils::getFromRequest('sf_musictype');
 
         // 2. sprawdzenie poprawności przekazanych parametrów
         // - nie trzeba sprawdzać
@@ -37,8 +37,8 @@ class BandListCtrl {
 
         // 2. Przygotowanie mapy z parametrami wyszukiwania (nazwa_kolumny => wartość)
         $search_params = []; //przygotowanie pustej struktury (aby była dostępna nawet gdy nie będzie zawierała wierszy)
-        if (isset($this->form->name) && strlen($this->form->name) > 0) {
-            $search_params['name[~]'] = $this->form->name . '%'; // dodanie symbolu % zastępuje dowolny ciąg znaków na końcu
+        if (isset($this->form->musictype) && strlen($this->form->musictype) > 0) {
+            $search_params['musictype[~]'] = $this->form->musictype . '%'; // dodanie symbolu % zastępuje dowolny ciąg znaków na końcu
         }
 
         // 3. Pobranie listy rekordów z bazy danych
