@@ -15,4 +15,6 @@ Utils::addRoute('BandEdit',    'BandEditCtrl');
 Utils::addRoute('BandDelete',  'BandEditCtrl');
 Utils::addRoute('BandSave',    'BandEditCtrl');
 Utils::addRoute('BandNew',    'BandEditCtrl');
+Utils::addRoute('registrationShow', 'RegistrationCtrl');
+Utils::addRoute('registrationSave', 'RegistrationCtrl');
 //Utils::addRoute('action_name', 'controller_class_name');
