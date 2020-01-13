@@ -11,10 +11,10 @@ Utils::addRoute('login', 'LoginCtrl');
 Utils::addRoute('logout', 'LoginCtrl');
 
 Utils::addRoute('BandList','BandListCtrl');
-Utils::addRoute('BandEdit',    'BandEditCtrl');
-Utils::addRoute('BandDelete',  'BandEditCtrl');
-Utils::addRoute('BandSave',    'BandEditCtrl');
-Utils::addRoute('BandNew',    'BandEditCtrl');
+Utils::addRoute('BandEdit',    'BandEditCtrl', ["admin"]);
+Utils::addRoute('BandDelete',  'BandEditCtrl', ["admin"]);
+Utils::addRoute('BandSave',    'BandEditCtrl', ["admin"]);
+Utils::addRoute('BandNew',    'BandEditCtrl', ["admin"]);
 Utils::addRoute('registrationShow', 'RegistrationCtrl');
 Utils::addRoute('registrationSave', 'RegistrationCtrl');
 //Utils::addRoute('action_name', 'controller_class_name');
