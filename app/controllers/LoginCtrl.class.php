@@ -22,6 +22,16 @@ class LoginCtrl {
         $this->form->pass = ParamUtils::getFromRequest('pass');
 
         //nie ma sensu walidować dalej, gdy brak parametrów
+        $dbid; //prywatna zmienna, stworzona do przetrzymywania indeksu rekordu z bazy danych o danym loginie
+
+        if ($this->form->login){
+            $dbid =  App::getDB()->get("clients", "idclient", [
+                "login" => $this->form->login
+            ]);
+
+            //select("clients", "idclient", "login" -> $this->form->login);
+        }
+
         if (!isset($this->form->login))
             return false;
 
@@ -43,7 +53,15 @@ class LoginCtrl {
             RoleUtils::addRole('admin');
         } else if ($this->form->login == "user" && $this->form->pass == "user") {
             RoleUtils::addRole('user');
-        } else {
+        }  else if ($this->form->login == App::getDB()->get("clients", "login", [
+            "idclient" => $dbid ])
+            &&
+            $this->form->pass == App::getDB()->get("clients", "password", [
+            "idclient" => $dbid]))
+            {
+            RoleUtils::addRole('user');
+                }
+        else {
             Utils::addErrorMessage('Niepoprawny login lub hasło');
         }
 
