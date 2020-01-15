@@ -28,13 +28,13 @@ public function action_registrationSave() {
         // 2. Zapis danych w bazie
         try {
 
-                $test = App::getDB()->select("clients", "phone", ["login" => $this->form->login]);
+                $test = App::getDB()->select("clients", "phone", ["login" => $this->form->login]); //sprawdzam czy w bazie wystepuje rekord zawierajacy dany login
                 if (count($test)>0){
-                   Utils::addErrorMessage('Login zajęty. Wybierz inny.');
+                   Utils::addErrorMessage('Login zajęty. Wybierz inny.'); //jezeli tak, wyrzucam blad i prosze o wypelnienie formularza ponownie
                     $this->generateView();
 
                 } else {
-                    App::getDB()->insert("clients", [
+                    App::getDB()->insert("clients", [ //jezeli nie, zapisuje formularz w BD
                         "login" => $this->form->login,
                         "password" => $this->form->password,
                         "phone" => $this->form->phone,
@@ -45,9 +45,6 @@ public function action_registrationSave() {
                     App::getRouter()->forwardTo('loginShow');
 
                 }
-                    //echo ($sprawdz);
-
-
 
 
         } catch (\PDOException $e) {
