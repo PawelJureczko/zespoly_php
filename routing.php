@@ -10,7 +10,7 @@ Utils::addRoute('loginShow', 'LoginCtrl');
 Utils::addRoute('login', 'LoginCtrl');
 Utils::addRoute('logout', 'LoginCtrl');
 
-Utils::addRoute('BandList','BandListCtrl');
+Utils::addRoute('BandList','BandListCtrl', ['admin', 'user']);
 Utils::addRoute('BandEdit',    'BandEditCtrl', ["admin"]);
 Utils::addRoute('BandDelete',  'BandEditCtrl', ["admin"]);
 Utils::addRoute('BandSave',    'BandEditCtrl', ["admin"]);

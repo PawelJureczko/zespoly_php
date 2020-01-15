@@ -28,22 +28,28 @@ public function action_registrationSave() {
         // 2. Zapis danych w bazie
         try {
 
-            //2.1 Nowy rekord
-                        //sprawdź liczebność rekordów - nie pozwalaj przekroczyć 20
-                $count = App::getDB()->count("clients");
-                if ($count <= 20) {
+                $test = App::getDB()->select("clients", "phone", ["login" => $this->form->login]);
+                if (count($test)>0){
+                   Utils::addErrorMessage('Login zajęty. Wybierz inny.');
+                    $this->generateView();
+
+                } else {
                     App::getDB()->insert("clients", [
                         "login" => $this->form->login,
                         "password" => $this->form->password,
-                        "phone" => $this->form->phone
+                        "phone" => $this->form->phone,
+                        "role" => "user"
                     ]);
-                } else { //za dużo rekordów
-                    // Gdy za dużo rekordów to pozostań na stronie
-                    Utils::addInfoMessage('Ograniczenie: Zbyt dużo rekordów. Aby dodać nowy usuń wybrany wpis.');
-                    $this->generateView(); //pozostań na stronie edycji
-                    exit(); //zakończ przetwarzanie, aby nie dodać wiadomości o pomyślnym zapisie danych
+                         Utils::addInfoMessage('Pomyślnie zapisano rekord');
+
+                    App::getRouter()->forwardTo('loginShow');
+
                 }
-            Utils::addInfoMessage('Pomyślnie zapisano rekord');
+                    //echo ($sprawdz);
+
+
+
+
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas zapisu rekordu');
             if (App::getConf()->debug)
@@ -51,7 +57,7 @@ public function action_registrationSave() {
         }
 
         // 3b. Po zapisie przejdź na stronę listy osób (w ramach tego samego żądania http)
-        App::getRouter()->forwardTo('loginShow');
+
     } else {
         // 3c. Gdy błąd walidacji to pozostań na stronie
         $this->generateView();

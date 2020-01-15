@@ -7,4 +7,5 @@ class RegistrationForm {
 	public $login;
     public $password;
     public $phone;
+    public $role;
 }
