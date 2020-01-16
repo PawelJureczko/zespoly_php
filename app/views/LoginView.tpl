@@ -19,7 +19,7 @@
 </form>
 <form action="{$conf->action_root}registrationShow" class="pure-form pure-form alighed bottom-margin">
 	<div class="pure-controls">
-	<input type="submit" value="registration" class="pure-button pure-button-primary">
+	<input type="submit" value="rejestracja" class="pure-button pure-button-primary">
 	</div>
 </form>
 {/block}
