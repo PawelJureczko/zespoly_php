@@ -12,7 +12,11 @@
         </div>
 		<div class="pure-control-group">
             <label for="password">haslo</label>
-            <input id="password" type="text" placeholder="haslo" name="password" value="">
+            <input id="password" type="password" placeholder="haslo" name="password" value="">
+        </div>
+		<div class="pure-control-group">
+            <label for="passwordrepeated">powtorz haslo</label>
+            <input id="passwordrepeated" type="password" placeholder="powtorz haslo" name="passwordrepeated" value="">
         </div>
 		<div class="pure-control-group">
             <label for="phone">numer telefonu</label>

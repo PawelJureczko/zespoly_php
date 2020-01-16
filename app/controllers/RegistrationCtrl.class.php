@@ -33,7 +33,10 @@ public function action_registrationSave() {
                    Utils::addErrorMessage('Login zajęty. Wybierz inny.'); //jezeli tak, wyrzucam blad i prosze o wypelnienie formularza ponownie
                     $this->generateView();
 
-                } else {
+                } else if ($this->form->password !== $this->form->passwordrepeated) {
+                Utils::addErrorMessage('Hasla nie są jednakowe!'); //jezeli tak, wyrzucam blad i prosze o wypelnienie formularza ponownie
+                   $this->generateView();
+                }else {
                     App::getDB()->insert("clients", [ //jezeli nie, zapisuje formularz w BD
                         "login" => $this->form->login,
                         "password" => $this->form->password,
@@ -72,6 +75,8 @@ public function generateView() {
         $this->form->login = ParamUtils::getFromRequest('login', true, 'Błędne wywołanie aplikacji');
         $this->form->password = ParamUtils::getFromRequest('password', true, 'Błędne wywołanie aplikacji');
         $this->form->phone = ParamUtils::getFromRequest('phone', true, 'Błędne wywołanie aplikacji');
+        $this->form->passwordrepeated = ParamUtils::getFromRequest('passwordrepeated', true, 'Błędne wywołanie aplikacji');
+
 
         if (App::getMessages()->isError())
             return false;
@@ -85,6 +90,10 @@ public function generateView() {
         }
         if (empty(trim($this->form->phone))) {
             Utils::addErrorMessage('Wprowadz numer telefonu');
+        }
+
+        if (empty(trim($this->form->passwordrepeated))) {
+            Utils::addErrorMessage('Wprowadz ponownie haslo');
         }
 
         if (App::getMessages()->isError())
