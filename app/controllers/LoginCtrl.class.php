@@ -95,4 +95,10 @@ class LoginCtrl {
         App::getSmarty()->display('LoginView.tpl');
     }
 
+    public function action_accessdenied(){
+
+        Utils::addErrorMessage('Musisz się zalogować!');
+        $this->generateView();
+    }
+
 }

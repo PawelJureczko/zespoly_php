@@ -6,6 +6,9 @@ use core\Utils;
 App::getRouter()->setDefaultRoute('loginShow'); #default action
 //App::getRouter()->setLoginRoute('login'); #action to forward if no permissions
 
+App::getRouter()->setLoginRoute('accessdenied');
+
+Utils::addRoute('accessdenied', 'LoginCtrl');
 Utils::addRoute('loginShow', 'LoginCtrl');
 Utils::addRoute('login', 'LoginCtrl');
 Utils::addRoute('logout', 'LoginCtrl');
