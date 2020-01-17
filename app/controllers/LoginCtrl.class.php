@@ -49,6 +49,7 @@ class LoginCtrl {
 
         // sprawdzenie, czy dane logowania poprawne
         // (takie informacje najczęściej przechowuje się w bazie danych)
+
         if ($this->form->login == "admin" && $this->form->pass == "admin") {
             RoleUtils::addRole('admin');
         } else if ($this->form->login == "user" && $this->form->pass == "user") {
@@ -60,10 +61,20 @@ class LoginCtrl {
             "idclient" => $dbid]))
             {
             RoleUtils::addRole('user');
+        } else if (($this->form->login == App::getDB()->get("clients", "login", [
+            "idclient" => $dbid ])
+            &&
+            $this->form->pass != App::getDB()->get("clients", "password", [
+            "idclient" => $dbid]))){
+                Utils::addErrorMessage('Niepoprawne hasło');
+            } // komunikat o blednym hasle dla loginu znajdujacego sie w bazie
+            else if ($dbid==''){
+                Utils::addErrorMessage("Konto nie istnieje");
+            }
+            else {
+                Utils::addErrorMessage('Niepoprawny login lub hasło');
+
                 }
-        else {
-            Utils::addErrorMessage('Niepoprawny login lub hasło');
-        }
 
         return !App::getMessages()->isError();
     }
