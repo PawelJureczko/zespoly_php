@@ -6,11 +6,13 @@ use core\App;
 use core\Utils;
 use core\RoleUtils;
 use core\ParamUtils;
+use core\SessionUtils;
 use app\forms\LoginForm;
 
 class LoginCtrl {
 
     private $form;
+    private $sessionLogin;
 
     public function __construct() {
         //stworzenie potrzebnych obiektów
@@ -79,6 +81,8 @@ class LoginCtrl {
         return !App::getMessages()->isError();
     }
 
+
+
     public function action_loginShow() {
         $this->generateView();
     }
@@ -87,6 +91,9 @@ class LoginCtrl {
         if ($this->validate()) {
             //zalogowany => przekieruj na główną akcję (z przekazaniem messages przez sesję)
             Utils::addErrorMessage('Poprawnie zalogowano do systemu');
+            session_start();
+            $_SESSION["sessionLogin"] = $this->form->login;
+            SessionUtils::store($sessionLogin, $this->form->login);
             App::getRouter()->redirectTo("BandList");
         } else {
             //niezalogowany => pozostań na stronie logowania

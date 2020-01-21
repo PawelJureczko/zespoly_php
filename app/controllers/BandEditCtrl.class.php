@@ -58,14 +58,12 @@ class BandEditCtrl {
     }
 
     public function action_BandNew() {
-        if ()
-        $this->generateView();
+               $this->generateView();
     }
 
     //wysiweltenie rekordu do edycji wskazanego parametrem 'id'
     public function action_BandEdit() {
         // 1. walidacja id osoby do edycji
-        if (RoleUtils::addRole($rola);)
         if ($this->validateEdit()) {
             try {
                 // 2. odczyt z bazy danych osoby o podanym ID (tylko jednego rekordu)

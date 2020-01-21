@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-01-17 20:12:48
-  from 'C:\xampp\htdocs\zespoly\app\views\Registration.tpl' */
+/* Smarty version 3.1.33, created on 2020-01-17 20:45:40
+  from 'C:\xampp\htdocs\zespoly\app\views\UserProfile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e2207308a95a2_69672212',
+  'unifunc' => 'content_5e220ee4c63362_82843968',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'f58274c49228360dc6773d8130a06ab23dd0c778' => 
+    'fb3955ae97c39a613b3e3f1b816464214b8c4abb' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\zespoly\\app\\views\\Registration.tpl',
-      1 => 1579288333,
+      0 => 'C:\\xampp\\htdocs\\zespoly\\app\\views\\UserProfile.tpl',
+      1 => 1579290339,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e2207308a95a2_69672212 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e220ee4c63362_82843968 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2882614775e2207308a5c09_45139622', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19100986045e220ee4c5f8d2_59405793', 'top');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'top'} */
-class Block_2882614775e2207308a5c09_45139622 extends Smarty_Internal_Block
+class Block_19100986045e220ee4c5f8d2_59405793 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_2882614775e2207308a5c09_45139622',
+    0 => 'Block_19100986045e220ee4c5f8d2_59405793',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,15 +52,12 @@ registrationSave" method="post" class="pure-form pure-form-aligned">
 		<legend>Wypelnij formularz rejestracji:</legend>
 		<div class="pure-control-group">
             <label for="login">login</label>
-            <input id="name" type="text" placeholder="login" name="login" value="">
+            <input id="name" type="text" placeholder="login" name="login" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->login;?>
+">
         </div>
 		<div class="pure-control-group">
-            <label for="password">haslo</label>
-            <input id="password" type="password" placeholder="haslo" name="password" value="">
-        </div>
-		<div class="pure-control-group">
-            <label for="passwordrepeated">powtorz haslo</label>
-            <input id="passwordrepeated" type="password" placeholder="powtorz haslo" name="passwordrepeated" value="">
+            <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+changePassword">Zmień hasło</a>
         </div>
         <div class="pure-control-group">
             <label for="name">imie</label>

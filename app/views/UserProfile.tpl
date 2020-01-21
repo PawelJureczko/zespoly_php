@@ -8,15 +8,10 @@
 		<legend>Wypelnij formularz rejestracji:</legend>
 		<div class="pure-control-group">
             <label for="login">login</label>
-            <input id="name" type="text" placeholder="login" name="login" value="">
+            <input id="name" type="text" placeholder="login" name="login" value="{$form->login}">
         </div>
 		<div class="pure-control-group">
-            <label for="password">haslo</label>
-            <input id="password" type="password" placeholder="haslo" name="password" value="">
-        </div>
-		<div class="pure-control-group">
-            <label for="passwordrepeated">powtorz haslo</label>
-            <input id="passwordrepeated" type="password" placeholder="powtorz haslo" name="passwordrepeated" value="">
+            <a href="{$conf->action_root}changePassword">Zmień hasło</a>
         </div>
         <div class="pure-control-group">
             <label for="name">imie</label>

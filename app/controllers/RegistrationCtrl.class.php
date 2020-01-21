@@ -40,6 +40,9 @@ public function action_registrationSave() {
                     App::getDB()->insert("clients", [ //jezeli nie, zapisuje formularz w BD
                         "login" => $this->form->login,
                         "password" => $this->form->password,
+                        "name" => $this->form->name,
+                        "surname" => $this->form->surname,
+                        "email" => $this->form->email,
                         "phone" => $this->form->phone,
                         "role" => "user"
                     ]);
@@ -76,7 +79,9 @@ public function generateView() {
         $this->form->password = ParamUtils::getFromRequest('password', true, 'Błędne wywołanie aplikacji');
         $this->form->phone = ParamUtils::getFromRequest('phone', true, 'Błędne wywołanie aplikacji');
         $this->form->passwordrepeated = ParamUtils::getFromRequest('passwordrepeated', true, 'Błędne wywołanie aplikacji');
-
+        $this->form->name = ParamUtils::getFromRequest('name', true, 'Błędne wywołanie aplikacji');
+        $this->form->surname = ParamUtils::getFromRequest('surname', true, 'Błędne wywołanie aplikacji');
+        $this->form->email = ParamUtils::getFromRequest('email', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
             return false;
@@ -96,6 +101,17 @@ public function generateView() {
             Utils::addErrorMessage('Wprowadz ponownie haslo');
         }
 
+        if (empty(trim($this->form->name))) {
+            Utils::addErrorMessage('Wprowadź imię');
+        }
+
+        if (empty(trim($this->form->surname))) {
+            Utils::addErrorMessage('Wprowadź nazwisko');
+        }
+
+        if (empty(trim($this->form->email))) {
+            Utils::addErrorMessage('Wprowadź email');
+        }
         if (App::getMessages()->isError())
             return false;
 

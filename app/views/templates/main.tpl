@@ -12,10 +12,10 @@
 <body style="margin: 20px;">
 
 <div class="pure-menu pure-menu-horizontal bottom-margin">
-	<a href="{$conf->action_root}BandList" class="pure-menu-heading pure-menu-link">Lista Zespolow</a>
 {if count($conf->roles)>0}
-	<a href="{$conf->action_root}logout" class="pure-menu-heading pure-menu-link">Wyloguj</a>
 	<a href="{$conf->action_root}userProfile" class="pure-menu-heading pure-menu-link">Moj profil</a>
+	<a href="{$conf->action_root}BandList" class="pure-menu-heading pure-menu-link">Lista Zespolow</a>
+	<a href="{$conf->action_root}logout" class="pure-menu-heading pure-menu-link">Wyloguj</a>
 {else}
 	<a href="{$conf->action_root}loginShow" class="pure-menu-heading pure-menu-link">Zaloguj</a>
 {/if}

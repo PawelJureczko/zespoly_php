@@ -5,6 +5,7 @@ namespace app\controllers;
 use core\App;
 use core\Utils;
 use core\ParamUtils;
+use core\SessionUtils;
 use app\forms\BandSearchForm;
 
 class BandListCtrl {
@@ -45,6 +46,8 @@ class BandListCtrl {
         // W tym wypadku zawsze wyświetlamy listę osób bez względu na to, czy dane wprowadzone w formularzu wyszukiwania są poprawne.
         // Dlatego pobranie nie jest uwarunkowane poprawnością walidacji (jak miało to miejsce w kalkulatorze)
         //przygotowanie frazy where na wypadek większej liczby parametrów
+        //$sessionLogina = SessionUtils::load($sessionLogin, true);
+        echo($_SESSION["sessionLogin"]);
         $num_params = sizeof($search_params);
         if ($num_params > 1) {
             $where = ["AND" => &$search_params];

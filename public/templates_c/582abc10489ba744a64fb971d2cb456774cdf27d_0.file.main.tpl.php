@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-01-16 21:31:43
+/* Smarty version 3.1.33, created on 2020-01-17 19:52:27
   from 'C:\xampp\htdocs\zespoly\app\views\templates\main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e20c82fb26f22_65747606',
+  'unifunc' => 'content_5e22026b1f3229_37976869',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '582abc10489ba744a64fb971d2cb456774cdf27d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\zespoly\\app\\views\\templates\\main.tpl',
-      1 => 1579206702,
+      1 => 1579287145,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e20c82fb26f22_65747606 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e22026b1f3229_37976869 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -39,13 +39,13 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 <body style="margin: 20px;">
 
 <div class="pure-menu pure-menu-horizontal bottom-margin">
-	<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-BandList" class="pure-menu-heading pure-menu-link">Lista Zespolow</a>
 <?php if (count($_smarty_tpl->tpl_vars['conf']->value->roles) > 0) {?>
 	<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-logout" class="pure-menu-heading pure-menu-link">Wyloguj</a>
-	<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 userProfile" class="pure-menu-heading pure-menu-link">Moj profil</a>
+	<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+BandList" class="pure-menu-heading pure-menu-link">Lista Zespolow</a>
+	<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+logout" class="pure-menu-heading pure-menu-link">Wyloguj</a>
 <?php } else { ?>
 	<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 loginShow" class="pure-menu-heading pure-menu-link">Zaloguj</a>
@@ -54,17 +54,17 @@ loginShow" class="pure-menu-heading pure-menu-link">Zaloguj</a>
 </div>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18863186125e20c82fab2ee9_66661020', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8249338915e22026b1ea713_71483031', 'top');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17104645615e20c82fab3e65_02741182', 'messages');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15721447005e22026b1eb240_63789300', 'messages');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20111574485e20c82fb268f0_91748568', 'bottom');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1817978855e22026b1f2d40_96502401', 'bottom');
 ?>
 
 
@@ -72,12 +72,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20111574485e20c82f
 
 </html><?php }
 /* {block 'top'} */
-class Block_18863186125e20c82fab2ee9_66661020 extends Smarty_Internal_Block
+class Block_8249338915e22026b1ea713_71483031 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_18863186125e20c82fab2ee9_66661020',
+    0 => 'Block_8249338915e22026b1ea713_71483031',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -87,12 +87,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'top'} */
 /* {block 'messages'} */
-class Block_17104645615e20c82fab3e65_02741182 extends Smarty_Internal_Block
+class Block_15721447005e22026b1eb240_63789300 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'messages' => 
   array (
-    0 => 'Block_17104645615e20c82fab3e65_02741182',
+    0 => 'Block_15721447005e22026b1eb240_63789300',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -122,12 +122,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 }
 /* {/block 'messages'} */
 /* {block 'bottom'} */
-class Block_20111574485e20c82fb268f0_91748568 extends Smarty_Internal_Block
+class Block_1817978855e22026b1f2d40_96502401 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'bottom' => 
   array (
-    0 => 'Block_20111574485e20c82fb268f0_91748568',
+    0 => 'Block_1817978855e22026b1f2d40_96502401',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
