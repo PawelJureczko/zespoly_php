@@ -3,7 +3,7 @@
 {block name=top}
 
 <div class="bottom-margin">
-<form action="{$conf->action_root}registrationSave" method="post" class="pure-form pure-form-aligned">
+<form action="{$conf->action_root}userSaveChanges" method="post" class="pure-form pure-form-aligned">
 	<fieldset>
 		<legend>Wypelnij formularz rejestracji:</legend>
 		<div class="pure-control-group">

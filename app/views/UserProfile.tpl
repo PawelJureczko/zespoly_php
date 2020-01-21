@@ -3,14 +3,10 @@
 {block name=top}
 
 <div class="bottom-margin">
-<form action="{$conf->action_root}registrationSave" method="post" class="pure-form pure-form-aligned">
+<form action="{$conf->action_root}userSaveChanges" method="post" class="pure-form pure-form-aligned">
 	<fieldset>
 		<legend>Wypelnij formularz edycji:</legend>
-		<div class="pure-control-group">
-            <label for="login">login</label>
-            <input id="name" type="text" placeholder="login" name="login" value="{$form->login}">
-        </div>
-		<div class="pure-control-group">
+			<div class="pure-control-group">
             <label for="name">imie</label>
             <input id ="name" name ="name" placeholder="imie" value="{$form->name}">
         </div>

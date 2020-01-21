@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-01-17 20:12:48
+/* Smarty version 3.1.33, created on 2020-01-21 21:54:30
   from 'C:\xampp\htdocs\zespoly\app\views\Registration.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e2207308a95a2_69672212',
+  'unifunc' => 'content_5e276506653b60_53192659',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f58274c49228360dc6773d8130a06ab23dd0c778' => 
     array (
       0 => 'C:\\xampp\\htdocs\\zespoly\\app\\views\\Registration.tpl',
-      1 => 1579288333,
+      1 => 1579640042,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e2207308a95a2_69672212 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e276506653b60_53192659 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2882614775e2207308a5c09_45139622', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19447010915e276506603dd4_77334301', 'top');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'top'} */
-class Block_2882614775e2207308a5c09_45139622 extends Smarty_Internal_Block
+class Block_19447010915e276506603dd4_77334301 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_2882614775e2207308a5c09_45139622',
+    0 => 'Block_19447010915e276506603dd4_77334301',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -47,7 +47,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 <div class="bottom-margin">
 <form action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-registrationSave" method="post" class="pure-form pure-form-aligned">
+userSaveChanges" method="post" class="pure-form pure-form-aligned">
 	<fieldset>
 		<legend>Wypelnij formularz rejestracji:</legend>
 		<div class="pure-control-group">

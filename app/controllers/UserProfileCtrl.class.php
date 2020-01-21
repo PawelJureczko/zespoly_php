@@ -23,13 +23,13 @@ class UserProfileCtrl {
         App::getSmarty()->display('UserProfile.tpl');
     }
 
-   /* public function validateEdit() {
+    public function validateEdit() {
         //pobierz parametry na potrzeby wyswietlenia danych do edycji
         //z widoku listy osób (parametr jest wymagany)
         $this->form->id = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
         return !App::getMessages()->isError();
-    } */
-    public function validateSave() {
+    }
+    /* public function validateSave() {
         //0. Pobranie parametrów z walidacją
        // $this->form->idclient = ParamUtils::getFromRequest('idclient', true, 'Błędne wywołanie aplikacji id');
         $this->form->login = ParamUtils::getFromRequest('login', true, 'Błędne wywołanie aplikacji');
@@ -73,33 +73,49 @@ class UserProfileCtrl {
             return false;
         }
 
-    }
+    } */
 
     public function action_userProfile(){
 
-            // 1. walidacja id osoby do edycji
             //if ($this->validateEdit()) {
                 try {
                     // 2. odczyt z bazy danych osoby o podanym ID (tylko jednego rekordu)
                     $record = App::getDB()->get("clients", "*", [
                         "idclient" => $_SESSION["sessionID"]]);
-                    // 2.1 jeśli osoba istnieje to wpisz dane do obiektu formularza
+
+
+                    /* $_POST['name'] = $record['name'];
+                    $_POST['surname'] = $record['surname'];
+                    $_POST['phone'] = $record['phone'];
+                    $_POST['email'] = $record['email']; */
                     $this->form->name = $record['name'];
                     $this->form->surname = $record['surname'];
-                    $this->form->login = $record['login'];
-                    $this->form->password = $record['password'];
                     $this->form->phone = $record['phone'];
                     $this->form->email = $record['email'];
+
                 } catch (\PDOException $e) {
                     Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                     if (App::getConf()->debug)
-                        Utils::addErrorMessage($e->getMessage());
+                    Utils::addErrorMessage($e->getMessage());
                 }
             //}
 
             // 3. Wygenerowanie widoku
             $this->generateView();
         }
+
+     public function action_userSaveChanges(){
+        App::getDB()->update("clients", [
+            "name" =>  $_POST['name'],
+            "surname" => $_POST['surname'],
+            "phone" => $_POST['phone'],
+            "email" => $_POST['email'],
+                ], [
+            "idclient" => $_SESSION["sessionID"]
+        ]);
+        Utils::addInfoMessage('Pomyślnie zapisano zmiany');
+        App::getRouter()->forwardTo('BandList');
+    }
 
 
     public function action_changePassword(){
