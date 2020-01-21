@@ -47,7 +47,7 @@ class BandListCtrl {
         // Dlatego pobranie nie jest uwarunkowane poprawnością walidacji (jak miało to miejsce w kalkulatorze)
         //przygotowanie frazy where na wypadek większej liczby parametrów
         //$sessionLogina = SessionUtils::load($sessionLogin, true);
-        echo($_SESSION["sessionLogin"]);
+
         $num_params = sizeof($search_params);
         if ($num_params > 1) {
             $where = ["AND" => &$search_params];

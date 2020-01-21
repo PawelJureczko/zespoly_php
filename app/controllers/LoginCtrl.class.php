@@ -93,6 +93,8 @@ class LoginCtrl {
             Utils::addErrorMessage('Poprawnie zalogowano do systemu');
             session_start();
             $_SESSION["sessionLogin"] = $this->form->login;
+            $_SESSION["sessionID"] = App::getDB()->get("clients", "idclient",[
+                "login" => $this->form->login]);
             SessionUtils::store($sessionLogin, $this->form->login);
             App::getRouter()->redirectTo("BandList");
         } else {

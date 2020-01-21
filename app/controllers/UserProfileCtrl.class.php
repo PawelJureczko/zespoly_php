@@ -76,22 +76,20 @@ class UserProfileCtrl {
     }
 
     public function action_userProfile(){
+
             // 1. walidacja id osoby do edycji
             //if ($this->validateEdit()) {
                 try {
                     // 2. odczyt z bazy danych osoby o podanym ID (tylko jednego rekordu)
                     $record = App::getDB()->get("clients", "*", [
-                        "idclient" => $this->form->idclient
-                    ]);
+                        "idclient" => $_SESSION["sessionID"]]);
                     // 2.1 jeśli osoba istnieje to wpisz dane do obiektu formularza
-                    $this->form->idclient = $record['idclient'];
                     $this->form->name = $record['name'];
                     $this->form->surname = $record['surname'];
                     $this->form->login = $record['login'];
                     $this->form->password = $record['password'];
                     $this->form->phone = $record['phone'];
                     $this->form->email = $record['email'];
-                    print_r ($record);
                 } catch (\PDOException $e) {
                     Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                     if (App::getConf()->debug)
