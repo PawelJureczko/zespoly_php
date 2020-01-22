@@ -7,6 +7,7 @@ use core\Utils;
 use core\ParamUtils;
 use core\Validator;
 use app\forms\UserProfileForm;
+use core\SessionUtils;
 
 class UserProfileCtrl {
 
@@ -80,14 +81,13 @@ class UserProfileCtrl {
             //if ($this->validateEdit()) {
                 try {
                     // 2. odczyt z bazy danych osoby o podanym ID (tylko jednego rekordu)
-                    $record = App::getDB()->get("clients", "*", [
+                    /* $record = App::getDB()->get("clients", "*", [
                         "idclient" => $_SESSION["sessionID"]]);
+                        */ //poprzednie dzialajace, bez frameworka
 
-
-                    /* $_POST['name'] = $record['name'];
-                    $_POST['surname'] = $record['surname'];
-                    $_POST['phone'] = $record['phone'];
-                    $_POST['email'] = $record['email']; */
+                   $record = App::getDB()->get("clients", "*", [
+                       "idclient" => SessionUtils::load("sessionID", true)
+                   ]);
                     $this->form->name = $record['name'];
                     $this->form->surname = $record['surname'];
                     $this->form->phone = $record['phone'];
@@ -111,7 +111,7 @@ class UserProfileCtrl {
             "phone" => $_POST['phone'],
             "email" => $_POST['email'],
                 ], [
-            "idclient" => $_SESSION["sessionID"]
+            "idclient" => SessionUtils::load("sessionID", true)
         ]);
         Utils::addInfoMessage('Pomyślnie zapisano zmiany');
         App::getRouter()->forwardTo('BandList');

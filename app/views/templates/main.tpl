@@ -16,6 +16,10 @@
 	<a href="{$conf->action_root}userProfile" class="pure-menu-heading pure-menu-link">Moj profil</a>
 	<a href="{$conf->action_root}BandList" class="pure-menu-heading pure-menu-link">Lista Zespolow</a>
 	<a href="{$conf->action_root}logout" class="pure-menu-heading pure-menu-link">Wyloguj</a>
+
+
+
+
 {else}
 	<a href="{$conf->action_root}loginShow" class="pure-menu-heading pure-menu-link">Zaloguj</a>
 {/if}
