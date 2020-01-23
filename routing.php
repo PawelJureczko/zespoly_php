@@ -21,6 +21,7 @@ Utils::addRoute('BandNew',    'BandEditCtrl', ["admin"]);
 Utils::addRoute('registrationShow', 'RegistrationCtrl');
 Utils::addRoute('registrationSave', 'RegistrationCtrl');
 Utils::addRoute('userProfile', 'UserProfileCtrl', ['admin', 'user']);
-Utils::addRoute('changePassword', 'UserProfileCtrl', ['admin', 'user']);
+Utils::addRoute('changePassword', 'ChangePasswordCtrl', ['admin', 'user']);
+Utils::addRoute('savePassword', 'ChangePasswordCtrl', ['admin', 'user']);
 Utils::addRoute('userSaveChanges', 'UserProfileCtrl', ['admin', 'user']);
 //Utils::addRoute('action_name', 'controller_class_name');

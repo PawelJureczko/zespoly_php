@@ -12,7 +12,7 @@ use app\forms\LoginForm;
 class LoginCtrl {
 
     private $form;
-    private $sessionLogin;
+
 
     public function __construct() {
         //stworzenie potrzebnych obiektów
@@ -52,17 +52,16 @@ class LoginCtrl {
         // sprawdzenie, czy dane logowania poprawne
         // (takie informacje najczęściej przechowuje się w bazie danych)
 
-        if ($this->form->login == "admin" && $this->form->pass == "admin") {
-            RoleUtils::addRole('admin');
-        } else if ($this->form->login == "user" && $this->form->pass == "user") {
-            RoleUtils::addRole('user');
-        }  else if ($this->form->login == App::getDB()->get("clients", "login", [
+        if ($this->form->login == App::getDB()->get("clients", "login", [
             "idclient" => $dbid ])
             &&
             $this->form->pass == App::getDB()->get("clients", "password", [
             "idclient" => $dbid]))
             {
-            RoleUtils::addRole('user');
+
+            RoleUtils::addRole(App::getDB()->get("clients", "role", [
+                "idclient" => $dbid
+            ]));
         } else if (($this->form->login == App::getDB()->get("clients", "login", [
             "idclient" => $dbid ])
             &&
@@ -96,8 +95,9 @@ class LoginCtrl {
             //$_SESSION["sessionLogin"] = $this->form->login;
             SessionUtils::store("sessionID", App::getDB()->get("clients", "idclient",[
                 "login" => $this->form->login]));
-            SessionUtils::store($sessionLogin, $this->form->login);
+            SessionUtils::store("sessionLogin", $this->form->login);
             App::getRouter()->redirectTo("BandList");
+
         } else {
             //niezalogowany => pozostań na stronie logowania
             $this->generateView();

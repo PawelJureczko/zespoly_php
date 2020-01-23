@@ -118,8 +118,4 @@ class UserProfileCtrl {
     }
 
 
-    public function action_changePassword(){
-        echo("trzeba dorobic funkcje zmiany hasla");
-        }
-
 }

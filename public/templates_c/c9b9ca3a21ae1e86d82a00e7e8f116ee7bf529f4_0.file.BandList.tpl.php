@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-01-14 21:12:30
+/* Smarty version 3.1.33, created on 2020-01-22 15:55:50
   from 'C:\xampp\htdocs\zespoly\app\views\BandList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e1e20aebc9232_32127347',
+  'unifunc' => 'content_5e28627614b976_56750043',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,30 +20,30 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e1e20aebc9232_32127347 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e28627614b976_56750043 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5368841455e1e20aeb29fe5_40755265', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16042908215e2862761417a7_95647631', 'top');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10072075555e1e20aeb557a6_55262216', 'bottom');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3842147865e286276144ad5_07959806', 'bottom');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'top'} */
-class Block_5368841455e1e20aeb29fe5_40755265 extends Smarty_Internal_Block
+class Block_16042908215e2862761417a7_95647631 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_5368841455e1e20aeb29fe5_40755265',
+    0 => 'Block_16042908215e2862761417a7_95647631',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -67,12 +67,12 @@ BandList">
 }
 /* {/block 'top'} */
 /* {block 'bottom'} */
-class Block_10072075555e1e20aeb557a6_55262216 extends Smarty_Internal_Block
+class Block_3842147865e286276144ad5_07959806 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'bottom' => 
   array (
-    0 => 'Block_10072075555e1e20aeb557a6_55262216',
+    0 => 'Block_3842147865e286276144ad5_07959806',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
