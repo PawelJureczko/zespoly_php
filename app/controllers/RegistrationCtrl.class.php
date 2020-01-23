@@ -12,6 +12,9 @@ class RegistrationCtrl {
 
     private $form;
 
+
+
+
     public function __construct() {
 
         $this->form = new RegistrationForm();
@@ -73,6 +76,27 @@ public function generateView() {
     }
 
     public function validateSave() {
+        $v = new Validator();
+
+        $email = $v->validateFromRequest('email', [
+            'required' => true,
+            'email' => true,
+            'validator_message' => 'Niewłaściwy format adresu email!',
+        ]);
+
+        $phone = $v->validateFromRequest('phone', [
+            'required'=> true,
+            'numeric' => true,
+            'min_length' => 9,
+            'max_length' => 9,
+            'validator_message' => 'Niewłaściwy format numeru telefonu!',
+        ]);
+
+        $password = $v->validateFromRequest('password', [
+            'required' => true,
+            'min_length' => 6,
+            'validator_message' => 'Hasło musi zawierać conajmniej 6 znaków!',
+        ]);
         //0. Pobranie parametrów z walidacją
        // $this->form->idclient = ParamUtils::getFromRequest('idclient', true, 'Błędne wywołanie aplikacji id');
         $this->form->login = ParamUtils::getFromRequest('login', true, 'Błędne wywołanie aplikacji');
