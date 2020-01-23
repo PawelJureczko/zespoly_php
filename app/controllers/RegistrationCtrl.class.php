@@ -31,7 +31,7 @@ public function action_registrationSave() {
         // 2. Zapis danych w bazie
         try {
 
-                $test = App::getDB()->select("clients", "phone", ["login" => $this->form->login]); //sprawdzam czy w bazie wystepuje rekord zawierajacy dany login
+                $test = App::getDB()->select("clients", "email", ["login" => $this->form->login]); //sprawdzam czy w bazie wystepuje rekord zawierajacy dany login
                 if (count($test)>0){
                    Utils::addErrorMessage('Login zajęty. Wybierz inny.'); //jezeli tak, wyrzucam blad i prosze o wypelnienie formularza ponownie
                     $this->generateView();
@@ -86,10 +86,14 @@ public function generateView() {
 
         $phone = $v->validateFromRequest('phone', [
             'required'=> true,
-            'numeric' => true,
             'min_length' => 9,
             'max_length' => 9,
-            'validator_message' => 'Niewłaściwy format numeru telefonu!',
+            'validator_message' => 'Numer telefonu jest za krótki!',
+        ]);
+
+        $phone2 = $v->validateFromRequest('phone', [
+            'numeric' => true,
+            'validator_message' => 'Niewiłaściwy format numeru telefonu!',
         ]);
 
         $password = $v->validateFromRequest('password', [
