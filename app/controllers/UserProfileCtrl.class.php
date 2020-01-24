@@ -24,13 +24,20 @@ class UserProfileCtrl {
         App::getSmarty()->display('UserProfile.tpl');
     }
 
+
+
+    public function generateViewAdmin() {
+        App::getSmarty()->assign('form', $this->form); // dane formularza dla widoku
+        App::getSmarty()->display('UserProfilebyAdmin.tpl');
+    }
+
     public function validateEdit() {
         //pobierz parametry na potrzeby wyswietlenia danych do edycji
         //z widoku listy osób (parametr jest wymagany)
-        $this->form->id = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
+        $this->form->idclient = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
         return !App::getMessages()->isError();
     }
-    /* public function validateSave() {
+    public function validateSave() {
         //0. Pobranie parametrów z walidacją
        // $this->form->idclient = ParamUtils::getFromRequest('idclient', true, 'Błędne wywołanie aplikacji id');
         $this->form->login = ParamUtils::getFromRequest('login', true, 'Błędne wywołanie aplikacji');
@@ -74,7 +81,7 @@ class UserProfileCtrl {
             return false;
         }
 
-    } */
+    }
 
     public function action_userProfile(){
 
@@ -116,6 +123,63 @@ class UserProfileCtrl {
         Utils::addInfoMessage('Pomyślnie zapisano zmiany');
         App::getRouter()->forwardTo('BandList');
     }
+
+    public function action_UserDelete(){
+        App::getDB()->delete("clients", [
+            "idclient" => ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji')
+        ]);
+        Utils::addInfoMessage('Pomyślnie usunięto rekord');
+        App::getRouter()->forwardTo('UserList');
+    }
+
+    public function action_userSaveChangesByAdmin(){
+            App::getDB()->update("clients", [
+            "name" =>  $_POST['name'],
+            "surname" => $_POST['surname'],
+            "phone" => $_POST['phone'],
+            "email" => $_POST['email'],
+                ], [
+            "idclient" => SessionUtils::load("userID", true)
+        ]);
+        Utils::addInfoMessage('Pomyślnie zapisano zmiany');
+        App::getRouter()->forwardTo('UserList');
+    }
+
+    public function action_userProfileEdit(){
+
+        //if ($this->validateEdit()) {
+            try {
+                // 2. odczyt z bazy danych osoby o podanym ID (tylko jednego rekordu)
+                /* $record = App::getDB()->get("clients", "*", [
+                    "idclient" => $_SESSION["sessionID"]]);
+                    */ //poprzednie dzialajace, bez frameworka
+
+                SessionUtils::store("userID", ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji'));
+
+                $record = App::getDB()->get("clients", "*", [
+                   "idclient" => ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji')
+               ]);
+
+                $this->form->name = $record['name'];
+                $this->form->surname = $record['surname'];
+                $this->form->phone = $record['phone'];
+                $this->form->email = $record['email'];
+
+            } catch (\PDOException $e) {
+                Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
+                if (App::getConf()->debug)
+                Utils::addErrorMessage($e->getMessage());
+            }
+            $currentID = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
+        //}
+        // 3. Wygenerowanie widoku
+        $this->generateViewAdmin();
+    }
+
+
+
+
+
 
 
 }

@@ -24,4 +24,8 @@ Utils::addRoute('userProfile', 'UserProfileCtrl', ['admin', 'user']);
 Utils::addRoute('changePassword', 'ChangePasswordCtrl', ['admin', 'user']);
 Utils::addRoute('savePassword', 'ChangePasswordCtrl', ['admin', 'user']);
 Utils::addRoute('userSaveChanges', 'UserProfileCtrl', ['admin', 'user']);
+Utils::addRoute('UserList', 'UserListCtrl');
+Utils::addRoute('UserProfileEdit', 'UserProfileCtrl', ['admin']);
+Utils::addRoute('userSaveChangesByAdmin', 'UserProfileCtrl', ['admin']);
+Utils::addRoute('UserDelete', 'UserProfileCtrl', ['admin']);
 //Utils::addRoute('action_name', 'controller_class_name');

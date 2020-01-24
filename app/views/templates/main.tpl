@@ -15,7 +15,9 @@
 {if count($conf->roles)>0}
 	<a href="{$conf->action_root}userProfile" class="pure-menu-heading pure-menu-link">Moj profil</a>
 	<a href="{$conf->action_root}BandList" class="pure-menu-heading pure-menu-link">Lista Zespolow</a>
+	<a href="{$conf->action_root}UserList" class="pure-menu-heading">Lista uzytkownikow</a>
 	<a href="{$conf->action_root}logout" class="pure-menu-heading">Wyloguj</a>
+
 
 
 {else}

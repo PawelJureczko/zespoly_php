@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-01-24 17:04:53
-  from 'C:\xampp\htdocs\zespoly\app\views\BandList.tpl' */
+/* Smarty version 3.1.33, created on 2020-01-24 17:56:26
+  from 'C:\xampp\htdocs\zespoly\app\views\UserList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e2b15a5f29e98_42247212',
+  'unifunc' => 'content_5e2b21ba3a5802_83290741',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'c9b9ca3a21ae1e86d82a00e7e8f116ee7bf529f4' => 
+    '423f70b8eb3c979ba135453c6f688d96da1a749d' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\zespoly\\app\\views\\BandList.tpl',
-      1 => 1579032747,
+      0 => 'C:\\xampp\\htdocs\\zespoly\\app\\views\\UserList.tpl',
+      1 => 1579884984,
       2 => 'file',
     ),
   ),
@@ -20,30 +20,30 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e2b15a5f29e98_42247212 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e2b21ba3a5802_83290741 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15863304665e2b15a5f1e000_22015375', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19391372315e2b21ba2e82c0_11251326', 'top');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1978284105e2b15a5f22716_53699011', 'bottom');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5510483355e2b21ba338923_98326756', 'bottom');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'top'} */
-class Block_15863304665e2b15a5f1e000_22015375 extends Smarty_Internal_Block
+class Block_19391372315e2b21ba2e82c0_11251326 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_15863304665e2b15a5f1e000_22015375',
+    0 => 'Block_19391372315e2b21ba2e82c0_11251326',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,10 +52,10 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 <div class="bottom-margin">
 <form class="pure-form pure-form-stacked" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-BandList">
+UserList">
 	<legend>Opcje wyszukiwania</legend>
 	<fieldset>
-		<input type="text" placeholder="rodzaj muzyki" name="sf_musictype" value="<?php echo $_smarty_tpl->tpl_vars['searchForm']->value->musictype;?>
+		<input type="text" placeholder="nazwisko" name="sf_surname" value="<?php echo $_smarty_tpl->tpl_vars['searchForm']->value->surname;?>
 " /><br />
 		<button type="submit" class="pure-button pure-button-primary">Filtruj</button>
 	</fieldset>
@@ -67,12 +67,12 @@ BandList">
 }
 /* {/block 'top'} */
 /* {block 'bottom'} */
-class Block_1978284105e2b15a5f22716_53699011 extends Smarty_Internal_Block
+class Block_5510483355e2b21ba338923_98326756 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'bottom' => 
   array (
-    0 => 'Block_1978284105e2b15a5f22716_53699011',
+    0 => 'Block_5510483355e2b21ba338923_98326756',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -81,31 +81,35 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 <div class="bottom-margin">
 <a class="pure-button button-success" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-BandNew">+ Dodaj zespol</a>
+registrationShow">+ Dodaj uzytkownika</a>
 </div>
 
 <table id="tab_people" class="pure-table pure-table-bordered">
 <thead>
 	<tr>
-		<th>nazwa</th>
-		<th>typ muzyki</th>
-		<th>czy zajety</th>
+		<th>login</th>
+		<th>imie</th>
+		<th>nazwisko</th>
+		<th>email</th>
+		<th>numer telefonu</th>
 		<th>opcje</th>
 	</tr>
 </thead>
 <tbody>
 <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['bands']->value, 'b');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['clients']->value, 'c');
 if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['b']->value) {
+foreach ($_from as $_smarty_tpl->tpl_vars['c']->value) {
 ?>
-<tr><td><?php echo $_smarty_tpl->tpl_vars['b']->value["name"];?>
-</td><td><?php echo $_smarty_tpl->tpl_vars['b']->value["musictype"];?>
-</td><td><?php echo $_smarty_tpl->tpl_vars['b']->value["ishired"];?>
+<tr><td><?php echo $_smarty_tpl->tpl_vars['c']->value["login"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['c']->value["name"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['c']->value["surname"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['c']->value["email"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['c']->value["phone"];?>
 </td><td><a class="button-small pure-button button-secondary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-BandEdit/<?php echo $_smarty_tpl->tpl_vars['b']->value['idband'];?>
+UserProfileEdit/<?php echo $_smarty_tpl->tpl_vars['c']->value['idclient'];?>
 ">Edytuj</a>&nbsp;<a class="button-small pure-button button-warning" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-BandDelete/<?php echo $_smarty_tpl->tpl_vars['b']->value['idband'];?>
+UserDelete/<?php echo $_smarty_tpl->tpl_vars['c']->value['idclient'];?>
 ">Usuń</a></td></tr>
 <?php
 }

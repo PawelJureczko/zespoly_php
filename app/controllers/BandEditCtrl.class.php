@@ -20,7 +20,7 @@ class BandEditCtrl {
     // Walidacja danych przed zapisem (nowe dane lub edycja).
     public function validateSave() {
         //0. Pobranie parametrów z walidacją
-        $this->form->id = ParamUtils::getFromRequest('id', true, 'Błędne wywołanie aplikacji');
+        $this->form->id = ParamUtils::getFromRequest('idband', true, 'Błędne wywołanie aplikacji');
         $this->form->name = ParamUtils::getFromRequest('name', true, 'Błędne wywołanie aplikacji');
         $this->form->musictype = ParamUtils::getFromRequest('musictype', true, 'Błędne wywołanie aplikacji');
         $this->form->ishired = ParamUtils::getFromRequest('ishired', true, 'Błędne wywołanie aplikacji');
@@ -30,7 +30,7 @@ class BandEditCtrl {
 
         // 1. sprawdzenie czy wartości wymagane nie są puste
         if (empty(trim($this->form->name))) {
-            Utils::addErrorMessage('Wprowadź imię');
+            Utils::addErrorMessage('Wprowadź nazwę');
         }
         if (empty(trim($this->form->musictype))) {
             Utils::addErrorMessage('Wprowadź gatunek muzyki');
@@ -53,7 +53,7 @@ class BandEditCtrl {
     public function validateEdit() {
         //pobierz parametry na potrzeby wyswietlenia danych do edycji
         //z widoku listy osób (parametr jest wymagany)
-        $this->form->idclient = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
+        $this->form->idband = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
         return !App::getMessages()->isError();
     }
 
@@ -64,14 +64,15 @@ class BandEditCtrl {
     //wysiweltenie rekordu do edycji wskazanego parametrem 'id'
     public function action_BandEdit() {
         // 1. walidacja id osoby do edycji
+
         if ($this->validateEdit()) {
             try {
                 // 2. odczyt z bazy danych osoby o podanym ID (tylko jednego rekordu)
                 $record = App::getDB()->get("bands", "*", [
-                    "idband" => $this->form->id
+                    "idband" => $this->form->idband
                 ]);
                 // 2.1 jeśli osoba istnieje to wpisz dane do obiektu formularza
-                $this->form->id = $record['idband'];
+                $this->form->idband = $record['idband'];
                 $this->form->name = $record['name'];
                 $this->form->musictype = $record['musictype'];
                 $this->form->ishired = $record['ishired'];
@@ -93,7 +94,7 @@ class BandEditCtrl {
             try {
                 // 2. usunięcie rekordu
                 App::getDB()->delete("bands", [
-                    "idband" => $this->form->id
+                    "idband" => $this->form->idband
                 ]);
                 Utils::addInfoMessage('Pomyślnie usunięto rekord');
             } catch (\PDOException $e) {
@@ -115,7 +116,7 @@ class BandEditCtrl {
             try {
 
                 //2.1 Nowy rekord
-                if ($this->form->id == '') {
+                if ($this->form->idband == '') {
                     //sprawdź liczebność rekordów - nie pozwalaj przekroczyć 20
 
                         App::getDB()->insert("bands", [
@@ -131,7 +132,7 @@ class BandEditCtrl {
                         "musictype" => $this->form->musictype,
                         "ishired" => $this->form->ishired
                             ], [
-                        "idband" => $this->form->id
+                        "idband" => $this->form->idband
                     ]);
                 }
                 Utils::addInfoMessage('Pomyślnie zapisano rekord');

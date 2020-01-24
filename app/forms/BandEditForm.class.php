@@ -3,7 +3,7 @@
 namespace app\forms;
 
 class BandEditForm {
-	public $id;
+	public $idband;
 	public $name;
 	public $musictype;
 	public $ishired;

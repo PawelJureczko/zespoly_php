@@ -26,7 +26,7 @@
 			<a class="pure-button button-secondary" href="{$conf->action_root}BandList">Powrót</a>
 		</div>
 	</fieldset>
-    <input type="hidden" name="id" value="{$form->id}">
+<input type="hidden" name="idband" value="{$form->idband}">
 </form>
 </div>
 

@@ -62,6 +62,11 @@ class LoginCtrl {
             RoleUtils::addRole(App::getDB()->get("clients", "role", [
                 "idclient" => $dbid
             ]));
+
+            SessionUtils::store("currentRole", App::getDB()->get("clients", "role", [
+                "idclient" => $dbid
+            ]));
+
         } else if (($this->form->login == App::getDB()->get("clients", "login", [
             "idclient" => $dbid ])
             &&
@@ -118,7 +123,12 @@ class LoginCtrl {
 
     public function action_accessdenied(){
 
+        if (SessionUtils::load("currentRole", true)==="user"){
+            Utils::addErrorMessage('Masz niewystarczające uprawnienia!');
+        } else if (SessionUtils::load("currentRole", true)===""){
         Utils::addErrorMessage('Musisz się zalogować!');
+        }
+
         $this->generateView();
     }
 
