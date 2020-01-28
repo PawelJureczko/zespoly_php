@@ -108,7 +108,9 @@ class UserProfileCtrl {
             //}
 
             // 3. Wygenerowanie widoku
+            App::getSmarty()->assign('currentUser', SessionUtils::load('sessionLogin', true));
             $this->generateView();
+
         }
 
      public function action_userSaveChanges(){

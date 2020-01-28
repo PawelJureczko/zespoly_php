@@ -7,6 +7,7 @@ use core\Utils;
 use core\ParamUtils;
 use core\Validator;
 use app\forms\BandEditForm;
+use core\SessionUtils;
 
 class BandEditCtrl {
 
@@ -152,6 +153,7 @@ class BandEditCtrl {
 
     public function generateView() {
         App::getSmarty()->assign('form', $this->form); // dane formularza dla widoku
+        App::getSmarty()->assign('currentUser', SessionUtils::load('sessionLogin', true));
         App::getSmarty()->display('BandEdit.tpl');
     }
 

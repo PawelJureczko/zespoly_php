@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-01-24 17:04:53
+/* Smarty version 3.1.33, created on 2020-01-28 20:35:02
   from 'C:\xampp\htdocs\zespoly\app\views\BandList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e2b15a5f29e98_42247212',
+  'unifunc' => 'content_5e308ce63a4fb9_61528219',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c9b9ca3a21ae1e86d82a00e7e8f116ee7bf529f4' => 
     array (
       0 => 'C:\\xampp\\htdocs\\zespoly\\app\\views\\BandList.tpl',
-      1 => 1579032747,
+      1 => 1580240099,
       2 => 'file',
     ),
   ),
@@ -20,30 +20,30 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e2b15a5f29e98_42247212 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e308ce63a4fb9_61528219 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15863304665e2b15a5f1e000_22015375', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7815024965e308ce6395b56_17805897', 'top');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1978284105e2b15a5f22716_53699011', 'bottom');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13843109745e308ce6399b85_66885138', 'bottom');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'top'} */
-class Block_15863304665e2b15a5f1e000_22015375 extends Smarty_Internal_Block
+class Block_7815024965e308ce6395b56_17805897 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_15863304665e2b15a5f1e000_22015375',
+    0 => 'Block_7815024965e308ce6395b56_17805897',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -67,12 +67,12 @@ BandList">
 }
 /* {/block 'top'} */
 /* {block 'bottom'} */
-class Block_1978284105e2b15a5f22716_53699011 extends Smarty_Internal_Block
+class Block_13843109745e308ce6399b85_66885138 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'bottom' => 
   array (
-    0 => 'Block_1978284105e2b15a5f22716_53699011',
+    0 => 'Block_13843109745e308ce6399b85_66885138',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -89,7 +89,6 @@ BandNew">+ Dodaj zespol</a>
 	<tr>
 		<th>nazwa</th>
 		<th>typ muzyki</th>
-		<th>czy zajety</th>
 		<th>opcje</th>
 	</tr>
 </thead>
@@ -101,12 +100,15 @@ foreach ($_from as $_smarty_tpl->tpl_vars['b']->value) {
 ?>
 <tr><td><?php echo $_smarty_tpl->tpl_vars['b']->value["name"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['b']->value["musictype"];?>
-</td><td><?php echo $_smarty_tpl->tpl_vars['b']->value["ishired"];?>
-</td><td><a class="button-small pure-button button-secondary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+</td><td><?php if ($_smarty_tpl->tpl_vars['currentRole']->value == 'admin') {?><a class="button-small pure-button button-secondary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 BandEdit/<?php echo $_smarty_tpl->tpl_vars['b']->value['idband'];?>
 ">Edytuj</a>&nbsp;<a class="button-small pure-button button-warning" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 BandDelete/<?php echo $_smarty_tpl->tpl_vars['b']->value['idband'];?>
-">Usuń</a></td></tr>
+">Usuń</a><a class="button-small pure-button button-primary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+BookBand/<?php echo $_smarty_tpl->tpl_vars['b']->value['idband'];?>
+">Rezerwuj</a><?php } else { ?><a class="button-small pure-button button-primary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+BookBand/<?php echo $_smarty_tpl->tpl_vars['b']->value['idband'];?>
+">Rezerwuj</a><?php }?></td></tr>
 <?php
 }
 }

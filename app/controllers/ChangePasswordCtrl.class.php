@@ -24,7 +24,10 @@ class ChangePasswordCtrl {
     }
 
     public function generateView(){
+        App::getSmarty()->assign('currentUser', SessionUtils::load('sessionLogin', true));
+
         App::getSmarty()->display('ChangePassword.tpl');
+
     }
 
     public function action_savePassword(){

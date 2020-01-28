@@ -12,6 +12,7 @@ class BandListCtrl {
 
     private $form; //dane formularza wyszukiwania
     private $records; //rekordy pobrane z bazy danych
+    //private $currentLogin;
 
     public function __construct() {
         //stworzenie potrzebnych obiektów
@@ -30,9 +31,10 @@ class BandListCtrl {
     }
 
     public function action_BandList() {
-
+        //$currentLogin = SessionUtils::load("sessionLogin", true);
+        $currentRole = SessionUtils::load("currentRole", true);
+        //echo($currentLogin);
         $this->validate();
-
         $search_params = []; //przygotowanie pustej struktury (aby była dostępna nawet gdy nie będzie zawierała wierszy)
         if (isset($this->form->musictype) && strlen($this->form->musictype) > 0) {
             $search_params['musictype[~]'] ='%' . $this->form->musictype . '%'; // dodanie symbolu % zastępuje dowolny ciąg znaków na końcu
@@ -46,7 +48,6 @@ class BandListCtrl {
         //dodanie frazy sortującej po nazwisku
         $where ["ORDER"] = "name";
         //wykonanie zapytania
-
         try {
             $this->records = App::getDB()->select("bands", [
                 "idband",
@@ -63,7 +64,11 @@ class BandListCtrl {
         // 4. wygeneruj widok
         App::getSmarty()->assign('searchForm', $this->form); // dane formularza (wyszukiwania w tym wypadku)
         App::getSmarty()->assign('bands', $this->records);  // lista rekordów z bazy danych
+        App::getSmarty()->assign('currentRole', $currentRole);
+        App::getSmarty()->assign('currentUser', SessionUtils::load('sessionLogin', true));
+        // App::getSmarty()->assign('currentLogin', $this->currentLogin);
         App::getSmarty()->display('BandList.tpl');
+
     }
 
 }

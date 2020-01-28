@@ -128,7 +128,6 @@ class LoginCtrl {
         } else if (SessionUtils::load("currentRole", true)===""){
         Utils::addErrorMessage('Musisz się zalogować!');
         }
-
         $this->generateView();
     }
 

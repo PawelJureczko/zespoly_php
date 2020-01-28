@@ -13,13 +13,11 @@
 			<input id="id_pass" type="password" name="pass" /><br />
 		</div>
 		<div class="pure-controls">
-			<input type="submit" value="zaloguj" class="pure-button pure-button-primary"/>
+			<input type="submit" value="Zaloguj" class="pure-button pure-button-primary"/>
+			<a class="pure-button pure-button-primary" href="{$conf->action_url}registrationShow">Rejestracja</a>
 		</div>
+
 	</fieldset>
 </form>
-<form action="{$conf->action_root}registrationShow" class="pure-form pure-form alighed bottom-margin">
-	<div class="pure-controls">
-	<input type="submit" value="rejestracja" class="pure-button pure-button-primary">
-	</div>
-</form>
+
 {/block}

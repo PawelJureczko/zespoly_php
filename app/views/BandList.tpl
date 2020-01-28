@@ -25,7 +25,6 @@
 	<tr>
 		<th>nazwa</th>
 		<th>typ muzyki</th>
-		<th>czy zajety</th>
 		<th>opcje</th>
 	</tr>
 </thead>
@@ -35,11 +34,15 @@
 	<tr>
 		<td>{$b["name"]}</td>
 		<td>{$b["musictype"]}</td>
-		<td>{$b["ishired"]}</td>
 		<td>
+		{if $currentRole eq 'admin'}
 			<a class="button-small pure-button button-secondary" href="{$conf->action_url}BandEdit/{$b['idband']}">Edytuj</a>
 			&nbsp;
 			<a class="button-small pure-button button-warning" href="{$conf->action_url}BandDelete/{$b['idband']}">Usuń</a>
+			<a class="button-small pure-button button-primary" href="{$conf->action_url}BookBand/{$b['idband']}">Rezerwuj</a>
+		{else}
+			<a class="button-small pure-button button-primary" href="{$conf->action_url}BookBand/{$b['idband']}">Rezerwuj</a>
+			{/if}
 		</td>
 	</tr>
 {/strip}

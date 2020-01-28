@@ -29,12 +29,7 @@ class UserListCtrl {
         return !App::getMessages()->isError();
     }
 
-    public function validateEdit() {
-        //pobierz parametry na potrzeby wyswietlenia danych do edycji
-        //z widoku listy osób (parametr jest wymagany)
-        $this->form->idclient = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
-        return !App::getMessages()->isError();
-    }
+
 
     public function action_UserList() {
 
@@ -71,6 +66,7 @@ class UserListCtrl {
         // 4. wygeneruj widok
         App::getSmarty()->assign('searchForm', $this->form); // dane formularza (wyszukiwania w tym wypadku)
         App::getSmarty()->assign('clients', $this->records);  // lista rekordów z bazy danych
+        App::getSmarty()->assign('currentUser', SessionUtils::load('sessionLogin', true));
         App::getSmarty()->display('UserList.tpl');
     }
 
