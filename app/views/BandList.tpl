@@ -7,7 +7,7 @@
 	<legend>Opcje wyszukiwania</legend>
 	<fieldset>
 		<input type="text" placeholder="rodzaj muzyki" name="sf_musictype" value="{$searchForm->musictype}" /><br />
-		<button type="submit" class="pure-button pure-button-primary">Filtruj</button>
+		<button type="submit" class="btn btn-info">Filtruj</button>
 	</fieldset>
 </form>
 </div>
@@ -17,15 +17,15 @@
 {block name=bottom}
 
 <div class="bottom-margin">
-<a class="pure-button button-success" href="{$conf->action_root}BandNew">+ Dodaj zespol</a>
+<a class="btn btn-success" href="{$conf->action_root}BandNew">+ Dodaj zespol</a>
 </div>
 
-<table id="tab_people" class="pure-table pure-table-bordered">
+<table id="tab_people" class="table table-striped table-darkk table-bordered">
 <thead>
 	<tr>
-		<th>nazwa</th>
-		<th>typ muzyki</th>
-		<th>opcje</th>
+		<th scope="col">nazwa</th>
+		<th scope="col">typ muzyki</th>
+		<th scope="col">opcje</th>
 	</tr>
 </thead>
 <tbody>
@@ -36,12 +36,14 @@
 		<td>{$b["musictype"]}</td>
 		<td>
 		{if $currentRole eq 'admin'}
-			<a class="button-small pure-button button-secondary" href="{$conf->action_url}BandEdit/{$b['idband']}">Edytuj</a>
+			<a class="btn btn-success" href="{$conf->action_url}BookBand/{$b['idband']}">Rezerwuj</a>
 			&nbsp;
-			<a class="button-small pure-button button-warning" href="{$conf->action_url}BandDelete/{$b['idband']}">Usuń</a>
-			<a class="button-small pure-button button-primary" href="{$conf->action_url}BookBand/{$b['idband']}">Rezerwuj</a>
+			<a class="btn btn-info" href="{$conf->action_url}BandEdit/{$b['idband']}">Edytuj</a>
+			&nbsp;
+			<a class="btn btn-danger" href="{$conf->action_url}BandDelete/{$b['idband']}">Usuń</a>
+
 		{else}
-			<a class="button-small pure-button button-primary" href="{$conf->action_url}BookBand/{$b['idband']}">Rezerwuj</a>
+			<a class="btn btn-success" href="{$conf->action_url}BookBand/{$b['idband']}">Rezerwuj</a>
 			{/if}
 		</td>
 	</tr>

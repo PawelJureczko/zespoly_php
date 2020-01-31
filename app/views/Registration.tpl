@@ -35,8 +35,8 @@
             <input id ="phone" name ="phone" placeholder="numer telefonu" value="">
         </div>
 		<div class="pure-controls">
-			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
-			<a class="pure-button button-secondary" href="{$conf->action_root}loginShow">Powrót</a>
+			<input type="submit" class="btn btn-success" value="Zapisz"/>
+			<a class="btn btn-info" href="{$conf->action_root}loginShow">Powrót</a>
 		</div>
 	</fieldset>
 </form>

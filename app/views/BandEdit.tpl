@@ -22,8 +22,8 @@
             </select>
         </div>
 		<div class="pure-controls">
-			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
-			<a class="pure-button button-secondary" href="{$conf->action_root}BandList">Powrót</a>
+			<input type="submit" class="btn btn-success" value="Zapisz"/>
+			<a class="btn btn-link btn btn-outline-dark" href="{$conf->action_root}BandList">Powrót</a>
 		</div>
 	</fieldset>
 <input type="hidden" name="idband" value="{$form->idband}">

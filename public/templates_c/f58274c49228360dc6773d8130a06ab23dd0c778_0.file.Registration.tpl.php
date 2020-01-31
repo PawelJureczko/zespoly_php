@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-01-24 20:49:49
+/* Smarty version 3.1.33, created on 2020-01-31 23:19:58
   from 'C:\xampp\htdocs\zespoly\app\views\Registration.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e2b4a5d3bb9d4_74504636',
+  'unifunc' => 'content_5e34a80ea25b02_33437041',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f58274c49228360dc6773d8130a06ab23dd0c778' => 
     array (
       0 => 'C:\\xampp\\htdocs\\zespoly\\app\\views\\Registration.tpl',
-      1 => 1579645611,
+      1 => 1580509196,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e2b4a5d3bb9d4_74504636 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e34a80ea25b02_33437041 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_4266655415e2b4a5d3b85f6_70286775', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7242940265e34a80ea225f5_21090823', 'top');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'top'} */
-class Block_4266655415e2b4a5d3b85f6_70286775 extends Smarty_Internal_Block
+class Block_7242940265e34a80ea225f5_21090823 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_4266655415e2b4a5d3b85f6_70286775',
+    0 => 'Block_7242940265e34a80ea225f5_21090823',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -79,8 +79,8 @@ registrationSave" method="post" class="pure-form pure-form-aligned">
             <input id ="phone" name ="phone" placeholder="numer telefonu" value="">
         </div>
 		<div class="pure-controls">
-			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
-			<a class="pure-button button-secondary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+			<input type="submit" class="btn btn-success" value="Zapisz"/>
+			<a class="btn btn-info" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 loginShow">Powrót</a>
 		</div>
 	</fieldset>

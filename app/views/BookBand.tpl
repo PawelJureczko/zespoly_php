@@ -12,7 +12,7 @@
 
 {block name=bottom}
 
-<table id="tab_people" class="pure-table pure-table-bordered">
+<table id="tab_people" class="table table-striped table-darkk table-bordered">
 <thead>
 	<tr>
 		<th>nazwa</th>
@@ -29,7 +29,7 @@
 		<td>{$b["name"]}</td>
 		<td><input id="date" type="date" name="date" value=""/></td>
 		<td>
-			<input type="submit" class="button-small pure-button button-secondary" value="Rezerwuj">
+			<input type="submit" class="btn btn-success" value="Rezerwuj">
 		</td>
 	</tr>
 {/strip}

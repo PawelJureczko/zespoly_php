@@ -22,13 +22,14 @@
             <label for="phone">numer telefonu</label>
             <input id ="phone" name ="phone" placeholder="numer telefonu" value="{$form->phone}">
         </div>
-        <div class="pure-control-group">
-            <a class="pure-button button-secondary" href="{$conf->action_root}changePassword">Zmień hasło</a>
-        </div>
+
 		<div class="pure-controls">
-			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
-			<a class="pure-button button-secondary" href="{$conf->action_root}loginShow">Powrót</a>
+			<input type="submit" class="btn btn-success" value="Zapisz"/>
+            <a class="btn btn-info" href="{$conf->action_root}changePassword">Zmień hasło</a>
 		</div>
+        <div class="pure-controls">
+        <a class="btn btn-link btn btn-outline-dark" href="{$conf->action_root}loginShow">Powrót</a>
+        </div>
 	</fieldset>
 </form>
 </div>

@@ -13,8 +13,8 @@
 			<input id="id_pass" type="password" name="pass" /><br />
 		</div>
 		<div class="pure-controls">
-			<input type="submit" value="Zaloguj" class="pure-button pure-button-primary"/>
-			<a class="pure-button pure-button-primary" href="{$conf->action_url}registrationShow">Rejestracja</a>
+			<input type="submit" value="Zaloguj" class="btn btn-success"/>
+			<a class="btn btn-info" href="{$conf->action_url}registrationShow">Rejestracja</a>
 		</div>
 
 	</fieldset>

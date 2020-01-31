@@ -19,8 +19,8 @@
             <input id="newpasswordrepeated" type="password" placeholder="Powtorz nowe haslo" name="newpasswordrepeated" value="">
         </div>
 		<div class="pure-controls">
-			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
-			<a class="pure-button button-secondary" href="{$conf->action_root}userProfile">Powrót</a>
+			<input type="submit" class="btn btn-success" value="Zapisz"/>
+			<a class="btn btn-link btn btn-outline-dark" href="{$conf->action_root}userProfile">Powrót</a>
 		</div>
 	</fieldset>
     <input type="hidden" name="id" value="{$form->id}">

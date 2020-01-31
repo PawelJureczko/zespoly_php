@@ -1,3 +1,14 @@
 1. Jak skonfigurować framework, żeby php z Amelią działał na macu
 2. Walidator podczas edycji
 3. Lista rezerwacji z konkretnymi danymi (nie id)
+4. Będąc zalogowanym można wyświetlić informację przy przejściu do okna logowania o zalogowaniu
+
+powrot  btn btn-link btn btn-outline-dark
+
+zapisz  btn btn-success
+
+edytuj  btn btn-info
+
+usun  btn btn-danger
+
+rezerwuj  btn btn-success

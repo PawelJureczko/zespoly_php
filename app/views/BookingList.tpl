@@ -3,7 +3,7 @@
 
 {block name=bottom}
 
-<table id="tab_people" class="pure-table pure-table-bordered">
+<table id="tab_people" class="table table-striped table-darkk table-bordered">
 <thead>
 	<tr>
 		<th>id wydarzenia</th>
@@ -27,7 +27,7 @@
 
 		{if $currentRole eq 'admin'}
         <td>
-			<a class="button-small pure-button button-warning" href="{$conf->action_url}CalendaryDelete/{$b['idcalendary']}">Usuń</a>
+			<a class="btn btn-danger" href="{$conf->action_url}CalendaryDelete/{$b['idcalendary']}">Usuń</a>
 		</td>
         {/if}
 	</tr>
