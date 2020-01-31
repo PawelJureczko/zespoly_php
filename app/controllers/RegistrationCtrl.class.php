@@ -7,6 +7,7 @@ use core\Utils;
 use core\ParamUtils;
 use core\Validator;
 use app\forms\RegistrationForm;
+use core\SessionUtils;
 
 class RegistrationCtrl {
 
@@ -73,6 +74,9 @@ public function action_registrationSave() {
 public function generateView() {
         App::getSmarty()->assign('form', $this->form); // dane formularza dla widoku
         App::getSmarty()->display('Registration.tpl');
+        App::getSmarty()->assign('currentUser', SessionUtils::load('sessionLogin', true));
+        App::getSmarty()->assign('temp', 3);
+
     }
 
     public function validateSave() {
@@ -148,6 +152,9 @@ public function generateView() {
 
 
         return !App::getMessages()->isError();
+
+
     }
+
 
 }

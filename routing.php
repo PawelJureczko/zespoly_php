@@ -37,4 +37,6 @@ Utils::addRoute('UserDelete', 'UserProfileCtrl', ['admin']);
 
 Utils::addRoute('BookBand', 'BookBandCtrl');
 Utils::addRoute('ConfirmBookBand', 'BookBandCtrl');
+Utils::addRoute('BookedBandList', 'BookingListCtrl');
+Utils::addRoute('CalendaryDelete', 'BookingListCtrl');
 //Utils::addRoute('action_name', 'controller_class_name');

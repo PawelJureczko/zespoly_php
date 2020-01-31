@@ -16,19 +16,19 @@
 
 {block name=bottom}
 
-<div class="bottom-margin">
-<a class="pure-button button-success" href="{$conf->action_root}registrationShow">+ Dodaj uzytkownika</a>
-</div>
-
 <table id="tab_people" class="pure-table pure-table-bordered">
 <thead>
 	<tr>
 		<th>login</th>
 		<th>imie</th>
+		{if $currentRole eq 'admin'}
 		<th>nazwisko</th>
-		<th>email</th>
 		<th>numer telefonu</th>
+		{/if}
+		<th>email</th>
+		{if $currentRole eq 'admin'}
 		<th>opcje</th>
+		{/if}
 	</tr>
 </thead>
 <tbody>
@@ -37,14 +37,18 @@
 	<tr>
 		<td>{$c["login"]}</td>
 		<td>{$c["name"]}</td>
+		{if $currentRole eq 'admin'}
 		<td>{$c["surname"]}</td>
-		<td>{$c["email"]}</td>
 		<td>{$c["phone"]}</td>
+		{/if}
+		<td>{$c["email"]}</td>
+		{if $currentRole eq 'admin'}
 		<td>
 			<a class="button-small pure-button button-secondary" href="{$conf->action_url}UserProfileEdit/{$c['idclient']}">Edytuj</a>
 			&nbsp;
 			<a class="button-small pure-button button-warning" href="{$conf->action_url}UserDelete/{$c['idclient']}">Usuń</a>
 		</td>
+		{/if}
 	</tr>
 {/strip}
 {/foreach}

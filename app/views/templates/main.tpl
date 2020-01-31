@@ -16,7 +16,9 @@
 	<a href="{$conf->action_root}userProfile" class="pure-menu-heading pure-menu-link">Moj profil</a>
 	<a href="{$conf->action_root}BandList" class="pure-menu-heading pure-menu-link">Lista Zespolow</a>
 	<a href="{$conf->action_root}UserList" class="pure-menu-heading pure-menu-link">Lista uzytkownikow</a>
+	<a href="{$conf->action_root}BookedBandList" class="pure-menu-heading pure-menu-link">Lista rezerwacji</a>
 	<a href="{$conf->action_root}logout" class="pure-menu-heading pure-menu-link">Wyloguj</a>
+
 	<p class="pure-menu-heading">Zalogowany jako:{$currentUser}</p>
 
 

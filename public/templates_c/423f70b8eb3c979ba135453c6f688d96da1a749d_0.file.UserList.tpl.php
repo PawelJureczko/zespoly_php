@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-01-24 17:56:26
+/* Smarty version 3.1.33, created on 2020-01-31 22:33:55
   from 'C:\xampp\htdocs\zespoly\app\views\UserList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e2b21ba3a5802_83290741',
+  'unifunc' => 'content_5e349d432a4a96_50748950',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '423f70b8eb3c979ba135453c6f688d96da1a749d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\zespoly\\app\\views\\UserList.tpl',
-      1 => 1579884984,
+      1 => 1580506433,
       2 => 'file',
     ),
   ),
@@ -20,30 +20,30 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e2b21ba3a5802_83290741 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e349d432a4a96_50748950 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19391372315e2b21ba2e82c0_11251326', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11319453695e349d432971a1_02883847', 'top');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5510483355e2b21ba338923_98326756', 'bottom');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2601818005e349d4329a703_79339821', 'bottom');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'top'} */
-class Block_19391372315e2b21ba2e82c0_11251326 extends Smarty_Internal_Block
+class Block_11319453695e349d432971a1_02883847 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_19391372315e2b21ba2e82c0_11251326',
+    0 => 'Block_11319453695e349d432971a1_02883847',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -67,32 +67,31 @@ UserList">
 }
 /* {/block 'top'} */
 /* {block 'bottom'} */
-class Block_5510483355e2b21ba338923_98326756 extends Smarty_Internal_Block
+class Block_2601818005e349d4329a703_79339821 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'bottom' => 
   array (
-    0 => 'Block_5510483355e2b21ba338923_98326756',
+    0 => 'Block_2601818005e349d4329a703_79339821',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 
-<div class="bottom-margin">
-<a class="pure-button button-success" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-registrationShow">+ Dodaj uzytkownika</a>
-</div>
-
 <table id="tab_people" class="pure-table pure-table-bordered">
 <thead>
 	<tr>
 		<th>login</th>
 		<th>imie</th>
+		<?php if ($_smarty_tpl->tpl_vars['currentRole']->value == 'admin') {?>
 		<th>nazwisko</th>
-		<th>email</th>
 		<th>numer telefonu</th>
+		<?php }?>
+		<th>email</th>
+		<?php if ($_smarty_tpl->tpl_vars['currentRole']->value == 'admin') {?>
 		<th>opcje</th>
+		<?php }?>
 	</tr>
 </thead>
 <tbody>
@@ -103,14 +102,14 @@ foreach ($_from as $_smarty_tpl->tpl_vars['c']->value) {
 ?>
 <tr><td><?php echo $_smarty_tpl->tpl_vars['c']->value["login"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['c']->value["name"];?>
-</td><td><?php echo $_smarty_tpl->tpl_vars['c']->value["surname"];?>
-</td><td><?php echo $_smarty_tpl->tpl_vars['c']->value["email"];?>
+</td><?php if ($_smarty_tpl->tpl_vars['currentRole']->value == 'admin') {?><td><?php echo $_smarty_tpl->tpl_vars['c']->value["surname"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['c']->value["phone"];?>
-</td><td><a class="button-small pure-button button-secondary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+</td><?php }?><td><?php echo $_smarty_tpl->tpl_vars['c']->value["email"];?>
+</td><?php if ($_smarty_tpl->tpl_vars['currentRole']->value == 'admin') {?><td><a class="button-small pure-button button-secondary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 UserProfileEdit/<?php echo $_smarty_tpl->tpl_vars['c']->value['idclient'];?>
 ">Edytuj</a>&nbsp;<a class="button-small pure-button button-warning" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 UserDelete/<?php echo $_smarty_tpl->tpl_vars['c']->value['idclient'];?>
-">Usuń</a></td></tr>
+">Usuń</a></td><?php }?></tr>
 <?php
 }
 }

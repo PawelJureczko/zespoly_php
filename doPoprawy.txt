@@ -1,0 +1,3 @@
+1. Jak skonfigurować framework, żeby php z Amelią działał na macu
+2. Walidator podczas edycji
+3. Lista rezerwacji z konkretnymi danymi (nie id)

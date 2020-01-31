@@ -30,10 +30,29 @@ class ChangePasswordCtrl {
 
     }
 
+    /* public function validateSave(){
+        $v = new Validator();
+
+        $password = $v->validate('newpassword', [
+            'required' => true,
+            'min_length' => 6,
+            'validator_message' => 'Haslo musi miec conajmniej 6 znaków!'
+        ]);
+
+        $this->form->newpassword = ParamUtils::getFromPost('newpassword', true, 'Błędne wywołanie aplikacji');
+            echo ($this->form->newpassword);
+        if (empty(trim($this->form->newpassword))) {
+            Utils::addErrorMessage('Wprowadź haslo');
+        }
+    } */
+
     public function action_savePassword(){
+
         $record = App::getDB()->get("clients", "password", [
             "idclient" => SessionUtils::load("sessionID", true)
         ]);
+
+
         if ($_POST['currentpassword']!=$record){
 
             Utils::addErrorMessage('Niepoprawne hasło!');
@@ -44,7 +63,7 @@ class ChangePasswordCtrl {
             Utils::addErrorMessage('Wprowadzone hasła są różne!');
 
         }
-
+        //if ($this->validateSave()){
         if ($_POST['currentpassword']===$record && $_POST['newpassword']===$_POST['newpasswordrepeated']){
 
 
@@ -52,7 +71,11 @@ class ChangePasswordCtrl {
                 "idclient" => SessionUtils::load("sessionID", true)
             ]);
             Utils::addInfoMessage('Hasło zmienione!');
-        }
+        /*} else {
+            Utils::addErrorMessage('Coś poszło nie tak');
+        }*/
+    }
+
 
         $this->generateView();
 

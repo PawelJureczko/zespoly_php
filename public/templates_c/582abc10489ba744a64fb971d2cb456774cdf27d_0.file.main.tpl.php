@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-01-28 19:03:34
+/* Smarty version 3.1.33, created on 2020-01-31 22:32:50
   from 'C:\xampp\htdocs\zespoly\app\views\templates\main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e307776a7e538_89194255',
+  'unifunc' => 'content_5e349d0208ed42_79612869',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '582abc10489ba744a64fb971d2cb456774cdf27d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\zespoly\\app\\views\\templates\\main.tpl',
-      1 => 1580234613,
+      1 => 1580506369,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e307776a7e538_89194255 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e349d0208ed42_79612869 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -47,7 +47,10 @@ BandList" class="pure-menu-heading pure-menu-link">Lista Zespolow</a>
 	<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 UserList" class="pure-menu-heading pure-menu-link">Lista uzytkownikow</a>
 	<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+BookedBandList" class="pure-menu-heading pure-menu-link">Lista rezerwacji</a>
+	<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 logout" class="pure-menu-heading pure-menu-link">Wyloguj</a>
+
 	<p class="pure-menu-heading">Zalogowany jako:<?php echo $_smarty_tpl->tpl_vars['currentUser']->value;?>
 </p>
 
@@ -60,17 +63,17 @@ loginShow" class="pure-menu-heading pure-menu-link">Zaloguj</a>
 </div>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2748625055e307776a73ed4_43415265', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5476783235e349d02088562_15935694', 'top');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3267625695e307776a74d24_10476777', 'messages');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13182845255e349d02088cc1_36333472', 'messages');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16129904375e307776a7dfc6_70352219', 'bottom');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1322766285e349d0208e870_23464612', 'bottom');
 ?>
 
 
@@ -78,12 +81,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16129904375e307776
 
 </html><?php }
 /* {block 'top'} */
-class Block_2748625055e307776a73ed4_43415265 extends Smarty_Internal_Block
+class Block_5476783235e349d02088562_15935694 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_2748625055e307776a73ed4_43415265',
+    0 => 'Block_5476783235e349d02088562_15935694',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -93,12 +96,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'top'} */
 /* {block 'messages'} */
-class Block_3267625695e307776a74d24_10476777 extends Smarty_Internal_Block
+class Block_13182845255e349d02088cc1_36333472 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'messages' => 
   array (
-    0 => 'Block_3267625695e307776a74d24_10476777',
+    0 => 'Block_13182845255e349d02088cc1_36333472',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -128,12 +131,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 }
 /* {/block 'messages'} */
 /* {block 'bottom'} */
-class Block_16129904375e307776a7dfc6_70352219 extends Smarty_Internal_Block
+class Block_1322766285e349d0208e870_23464612 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'bottom' => 
   array (
-    0 => 'Block_16129904375e307776a7dfc6_70352219',
+    0 => 'Block_1322766285e349d0208e870_23464612',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

@@ -23,7 +23,7 @@
             <input id ="phone" name ="phone" placeholder="numer telefonu" value="{$form->phone}">
         </div>
         <div class="pure-control-group">
-            <a href="{$conf->action_root}changePassword">Zmień hasło</a>
+            <a class="pure-button button-secondary" href="{$conf->action_root}changePassword">Zmień hasło</a>
         </div>
 		<div class="pure-controls">
 			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>

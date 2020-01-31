@@ -67,6 +67,7 @@ class UserListCtrl {
         App::getSmarty()->assign('searchForm', $this->form); // dane formularza (wyszukiwania w tym wypadku)
         App::getSmarty()->assign('clients', $this->records);  // lista rekordów z bazy danych
         App::getSmarty()->assign('currentUser', SessionUtils::load('sessionLogin', true));
+        App::getSmarty()->assign('currentRole', SessionUtils::load("currentRole", true));
         App::getSmarty()->display('UserList.tpl');
     }
 
