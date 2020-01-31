@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 12 Sty 2020, 00:15
+-- Czas generowania: 31 Sty 2020, 23:42
 -- Wersja serwera: 10.4.8-MariaDB
 -- Wersja PHP: 7.3.11
 
@@ -40,8 +40,9 @@ CREATE TABLE `bands` (
 --
 
 INSERT INTO `bands` (`idband`, `name`, `musictype`, `ishired`) VALUES
-(8, 'asd', 'asda', 'tak'),
-(9, 'dsa', 'dsad', 'tak');
+(12, 'Metalica', 'metal', 'nie'),
+(13, 'Linkin Park', 'metal', 'nie'),
+(14, 'Beata Kozidrak', 'country', 'tak');
 
 -- --------------------------------------------------------
 
@@ -56,6 +57,14 @@ CREATE TABLE `calendary` (
   `date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
+--
+-- Zrzut danych tabeli `calendary`
+--
+
+INSERT INTO `calendary` (`idcalendary`, `idband`, `idclient`, `date`) VALUES
+(16, 13, 64, '2020-01-09'),
+(17, 14, 63, '2020-01-10');
+
 -- --------------------------------------------------------
 
 --
@@ -64,10 +73,24 @@ CREATE TABLE `calendary` (
 
 CREATE TABLE `clients` (
   `idclient` int(11) NOT NULL,
-  `name` varchar(45) COLLATE utf8_polish_ci DEFAULT NULL,
-  `surname` varchar(45) COLLATE utf8_polish_ci DEFAULT NULL,
-  `phone` varchar(9) COLLATE utf8_polish_ci DEFAULT NULL
+  `login` varchar(45) COLLATE utf8_polish_ci DEFAULT NULL,
+  `password` varchar(45) COLLATE utf8_polish_ci DEFAULT NULL,
+  `name` varchar(45) COLLATE utf8_polish_ci NOT NULL,
+  `surname` varchar(45) COLLATE utf8_polish_ci NOT NULL,
+  `email` varchar(45) COLLATE utf8_polish_ci NOT NULL,
+  `phone` varchar(9) COLLATE utf8_polish_ci DEFAULT NULL,
+  `role` varchar(5) COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `clients`
+--
+
+INSERT INTO `clients` (`idclient`, `login`, `password`, `name`, `surname`, `email`, `phone`, `role`) VALUES
+(63, 'admin', 'admin123', 'administratorra', 'administratorski', '123@123.pl', '123456789', 'admin'),
+(64, 'user', 'user1234', 'uzytkownik', 'uzytkowniski', 'uzyt@o2.pl', '123456789', 'user'),
+(65, 'asd', 'asdasd', 'asd', 'asd', 'asd@12.pl', '123123123', 'user'),
+(66, 'palobo', 'a', 'Pawel', 'pawellski', 'pawel@o2.pl', '123456789', 'user');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -101,19 +124,19 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT dla tabeli `bands`
 --
 ALTER TABLE `bands`
-  MODIFY `idband` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idband` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT dla tabeli `calendary`
 --
 ALTER TABLE `calendary`
-  MODIFY `idcalendary` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcalendary` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT dla tabeli `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `idclient` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idclient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- Ograniczenia dla zrzutów tabel
