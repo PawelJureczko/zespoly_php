@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="{$conf->app_url}/css/style.css">
 </head>
 
-<body style="margin: 20px;" >
+<body style="margin: 20px; background-color: #F9F8F8;" >
 
 <div class="pure-menu pure-menu-horizontal bottom-margin">
 {if count($conf->roles)>0}
