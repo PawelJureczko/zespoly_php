@@ -32,7 +32,7 @@ class ChangePasswordCtrl {
 
         public function validateSave(){
             $v = new Validator();
-            echo($_POST['newpassword']);
+
             $password = $v->validateFromRequest('newpassword', [
                 'required' => true,
                 'min_length' => 6,

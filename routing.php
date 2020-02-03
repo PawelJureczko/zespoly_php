@@ -30,13 +30,13 @@ Utils::addRoute('UserProfileEdit', 'UserProfileCtrl', ['admin']);
 Utils::addRoute('changePassword', 'ChangePasswordCtrl', ['admin', 'user']);
 Utils::addRoute('savePassword', 'ChangePasswordCtrl', ['admin', 'user']);
 
-Utils::addRoute('UserList', 'UserListCtrl');
+Utils::addRoute('UserList', 'UserListCtrl', ['admin', 'user']);
 
 Utils::addRoute('userSaveChangesByAdmin', 'UserProfileCtrl', ['admin']);
 Utils::addRoute('UserDelete', 'UserProfileCtrl', ['admin']);
 
-Utils::addRoute('BookBand', 'BookBandCtrl');
-Utils::addRoute('ConfirmBookBand', 'BookBandCtrl');
-Utils::addRoute('BookedBandList', 'BookingListCtrl');
-Utils::addRoute('CalendaryDelete', 'BookingListCtrl');
+Utils::addRoute('BookBand', 'BookBandCtrl', ['admin', 'user']);
+Utils::addRoute('ConfirmBookBand', 'BookBandCtrl', ['admin', 'user']);
+Utils::addRoute('BookedBandList', 'BookingListCtrl', ['admin', 'user']);
+Utils::addRoute('CalendaryDelete', 'BookingListCtrl', ['admin', 'user']);
 //Utils::addRoute('action_name', 'controller_class_name');

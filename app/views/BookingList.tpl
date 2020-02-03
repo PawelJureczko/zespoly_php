@@ -9,7 +9,8 @@
 		<th>id wydarzenia</th>
 		<th>nazwa kapeli</th>
 		<th>login</th>
-		<th>data</th>
+		<th>termin wydarzenia</th>
+		<th>data złożenia rezerwacji</th>
 
          {if $currentRole eq 'admin'}
 		<th>opcje</th>
@@ -24,6 +25,7 @@
 		<td>{$b["name"]}</td>
 		<td>{$b["login"]}</td>
 		<td>{$b["date"]}</td>
+		<td>{$b["reservationDate"]}</td>
 
 		{if $currentRole eq 'admin'}
         <td>

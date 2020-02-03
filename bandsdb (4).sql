@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 31 Sty 2020, 23:42
+-- Czas generowania: 03 Lut 2020, 23:20
 -- Wersja serwera: 10.4.8-MariaDB
 -- Wersja PHP: 7.3.11
 
@@ -54,16 +54,16 @@ CREATE TABLE `calendary` (
   `idcalendary` int(11) NOT NULL,
   `idband` int(11) DEFAULT NULL,
   `idclient` int(11) DEFAULT NULL,
-  `date` date DEFAULT NULL
+  `date` date DEFAULT NULL,
+  `reservationDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
 -- Zrzut danych tabeli `calendary`
 --
 
-INSERT INTO `calendary` (`idcalendary`, `idband`, `idclient`, `date`) VALUES
-(16, 13, 64, '2020-01-09'),
-(17, 14, 63, '2020-01-10');
+INSERT INTO `calendary` (`idcalendary`, `idband`, `idclient`, `date`, `reservationDate`) VALUES
+(22, 13, 64, '2020-02-12', '2020-02-03');
 
 -- --------------------------------------------------------
 
@@ -88,9 +88,9 @@ CREATE TABLE `clients` (
 
 INSERT INTO `clients` (`idclient`, `login`, `password`, `name`, `surname`, `email`, `phone`, `role`) VALUES
 (63, 'admin', 'admin123', 'administratorra', 'administratorski', '123@123.pl', '123456789', 'admin'),
-(64, 'user', 'user1234', 'uzytkownik', 'uzytkowniski', 'uzyt@o2.pl', '123456789', 'user'),
+(64, 'user', 'user1234', 'uzytkownikaa', 'uzytkowniski', 'uzyt@o2.pl', '123456781', 'user'),
 (65, 'asd', 'asdasd', 'asd', 'asd', 'asd@12.pl', '123123123', 'user'),
-(66, 'palobo', 'a', 'Pawel', 'pawellski', 'pawel@o2.pl', '123456789', 'user');
+(66, 'palobo', 'asdasdas', 'Pawel', 'pawellski', 'pawel@o2.pl', '123456789', 'user');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -130,7 +130,7 @@ ALTER TABLE `bands`
 -- AUTO_INCREMENT dla tabeli `calendary`
 --
 ALTER TABLE `calendary`
-  MODIFY `idcalendary` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `idcalendary` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT dla tabeli `clients`

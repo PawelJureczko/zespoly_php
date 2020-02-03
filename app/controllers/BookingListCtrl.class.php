@@ -66,7 +66,8 @@ class BookingListCtrl {
                 "calendary.idcalendary",
                 "bands.name",
                 "clients.login",
-                "calendary.date"
+                "calendary.date",
+                "calendary.reservationDate"
         ]);
 
         } catch (\PDOException $e) {

@@ -50,10 +50,10 @@ class BookBandCtrl {
         $date = $_POST['date'];
         $idclient = SessionUtils::load('sessionID', true);
         //print_r($idclient);
-
+        date_default_timezone_set('Europe/Berlin');
+        $currentDate = date('Y/m/d', time());
         //print_r($date);
         $idband = SessionUtils::load('idband', false);
-        //print_r($idband);
 
         $test = App::getDB()->get("calendary", ["idcalendary"],
          [
@@ -69,7 +69,8 @@ class BookBandCtrl {
         App::getDB()->insert("calendary", [
             "idband"=>$idband,
             "idclient"=>$idclient,
-            "date"=>$date
+            "date"=>$date,
+            "reservationDate"=>$currentDate
         ]);
         Utils::addInfoMessage('Pomyslnie zarezerwowano termin!');
             $this->generateView();
