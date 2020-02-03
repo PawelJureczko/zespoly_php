@@ -74,7 +74,7 @@ public function action_registrationSave() {
 public function generateView() {
         App::getSmarty()->assign('form', $this->form); // dane formularza dla widoku
         App::getSmarty()->display('Registration.tpl');
-        App::getSmarty()->assign('currentUser', SessionUtils::load('sessionLogin', true));
+        //App::getSmarty()->assign('currentUser', SessionUtils::load('sessionLogin', true));
         App::getSmarty()->assign('temp', 3);
 
     }

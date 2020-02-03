@@ -7,8 +7,8 @@
 <thead>
 	<tr>
 		<th>id wydarzenia</th>
-		<th>id kapeli</th>
-		<th>id klienta</th>
+		<th>nazwa kapeli</th>
+		<th>login</th>
 		<th>data</th>
 
          {if $currentRole eq 'admin'}
@@ -21,8 +21,8 @@
 {strip}
 	<tr>
 		<td>{$b["idcalendary"]}</td>
-		<td>{$b["idband"]}</td>
-		<td>{$b["idclient"]}</td>
+		<td>{$b["name"]}</td>
+		<td>{$b["login"]}</td>
 		<td>{$b["date"]}</td>
 
 		{if $currentRole eq 'admin'}

@@ -64,9 +64,8 @@ class BandListCtrl {
         // 4. wygeneruj widok
         App::getSmarty()->assign('searchForm', $this->form); // dane formularza (wyszukiwania w tym wypadku)
         App::getSmarty()->assign('bands', $this->records);  // lista rekordów z bazy danych
-        App::getSmarty()->assign('currentRole', $currentRole);
-        App::getSmarty()->assign('currentUser', SessionUtils::load('sessionLogin', true));
-        // App::getSmarty()->assign('currentLogin', $this->currentLogin);
+        //App::getSmarty()->assign('currentRole', $currentRole);
+        //App::getSmarty()->assign('currentUser', SessionUtils::load('sessionLogin', true));
         App::getSmarty()->display('BandList.tpl');
 
     }

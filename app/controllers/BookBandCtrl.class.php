@@ -40,7 +40,7 @@ class BookBandCtrl {
         SessionUtils::store('idband', ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji'));
         // 4. wygeneruj widok
         App::getSmarty()->assign('bands', $this->records);  // lista rekordów z bazy danych
-        App::getSmarty()->assign('currentUser', SessionUtils::load('sessionLogin', true));
+        //App::getSmarty()->assign('currentUser', SessionUtils::load('sessionLogin', true));
         App::getSmarty()->display('BookBand.tpl');
 
     }

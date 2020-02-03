@@ -1,5 +1,7 @@
 <?php
 
+use core\SessionUtils;
+use core\App;
 /*
  * The script automatically executed when getSmarty() is called for the first time.
  * Use it to setup the engine or pass additional variables that are always needed.
@@ -28,4 +30,6 @@ function rel_url($params, $smarty)
 \core\App::getSmarty()->registerPlugin("function","rel_url", "rel_url");
 
 #assign variables
-#\core\App::getSmarty()->assign('variable',$variable);
+App::getSmarty()->assign('currentUser', SessionUtils::load('sessionLogin', true));
+App::getSmarty()->assign('currentRole', SessionUtils::load("currentRole", true));
+

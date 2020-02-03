@@ -12,8 +12,7 @@ class BookingListCtrl {
 
     private $form; //dane formularza wyszukiwania
     private $recordsCalendary; //rekordy z tabeli kalendarz
-    private $recordsClient; //rekordy z tabeli klienci
-    private $recordsBands; //rekordy z tabeli zespoly
+
 
     public function __construct() {
         //stworzenie potrzebnych obiektów
@@ -60,11 +59,15 @@ class BookingListCtrl {
         //wykonanie zapytania */
         try {
             $this->recordsCalendary = App::getDB()->select("calendary", [
-                "idcalendary",
-                "idband",
-                "idclient",
-                "date"
-                    ]);
+                "[>]bands"=>["idband"=>"idband"],
+                "[>]clients"=>["idclient"=>"idclient"]
+            ],
+        [
+                "calendary.idcalendary",
+                "bands.name",
+                "clients.login",
+                "calendary.date"
+        ]);
 
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
@@ -72,22 +75,12 @@ class BookingListCtrl {
                 Utils::addErrorMessage($e->getMessage());
         }
 
-        /* foreach($this->recordsCalendary as $c){
-            $this->recordsClient = App::getDB()->get("clients", [
-                "login",
-                "name",
-                "surname"
-            ],
-            [
-                "idclient"=>$c
-            ]);
-        } */
 
       // 4. wygeneruj widok
         //App::getSmarty()->assign('searchForm', $this->form); // dane formularza (wyszukiwania w tym wypadku)
         App::getSmarty()->assign('calendary', $this->recordsCalendary);  // lista rekordów z bazy danych
-        App::getSmarty()->assign('currentRole', SessionUtils::load("currentRole", true));
-        App::getSmarty()->assign('currentUser', SessionUtils::load('sessionLogin', true));
+        //App::getSmarty()->assign('currentRole', SessionUtils::load("currentRole", true));
+        //App::getSmarty()->assign('currentUser', SessionUtils::load('sessionLogin', true));
         App::getSmarty()->display('BookingList.tpl');
     }
 
