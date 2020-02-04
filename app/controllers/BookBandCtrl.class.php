@@ -7,6 +7,7 @@ use core\Utils;
 use core\ParamUtils;
 use core\SessionUtils;
 use app\forms\BookBandForm;
+use core\Validator;
 
 class BookBandCtrl {
 
@@ -18,9 +19,29 @@ class BookBandCtrl {
         //stworzenie potrzebnych obiektów
         $this->form = new BookBandForm();
     }
+    public function validateSave(){
+        $v = new Validator();
 
+        $city = $v->validateFromRequest('city', [
+            'required' => true,
+            'validator_message' => 'błąd'
+        ]);
+
+        $this->form->city = ParamUtils::getFromRequest('city', true, 'Błąd');
+
+        if (empty(trim($this->form->city))){
+            Utils::addErrorMessage('Wprowadz miasto');
+        }
+
+        if (App::getMessages()->isError()){
+            return false;
+        }
+
+        return !App::getMessages()->isError();
+    }
 
     public function action_BookBand() {
+
         try {
             $this->records = App::getDB()->select("bands", [
                 "idband",
@@ -42,39 +63,46 @@ class BookBandCtrl {
         App::getSmarty()->assign('bands', $this->records);  // lista rekordów z bazy danych
         //App::getSmarty()->assign('currentUser', SessionUtils::load('sessionLogin', true));
         App::getSmarty()->display('BookBand.tpl');
-
     }
+
+
 
     public function action_ConfirmBookBand(){
+        if ($this->validateSave()){
+            $date = $_POST['date'];
+            $idclient = SessionUtils::load('sessionID', true);
+            //print_r($idclient);
+            date_default_timezone_set('Europe/Berlin');
+            $currentDate = date('Y/m/d', time());
+            //print_r($date);
+            $idband = SessionUtils::load('idband', false);
 
-        $date = $_POST['date'];
-        $idclient = SessionUtils::load('sessionID', true);
-        //print_r($idclient);
-        date_default_timezone_set('Europe/Berlin');
-        $currentDate = date('Y/m/d', time());
-        //print_r($date);
-        $idband = SessionUtils::load('idband', false);
+            $test = App::getDB()->get("calendary", ["idcalendary"],
+            [
+                "date" => $date,
+                "idband"=>$idband
+            ]);
 
-        $test = App::getDB()->get("calendary", ["idcalendary"],
-         [
-            "date" => $date,
-            "idband"=>$idband
-        ]);
+            if ($test!=0){
+                Utils::addErrorMessage('Niestety, podany termin jest juz zarezerwowany');
+                $this->generateView();
+            } else {
 
-        if ($test!=0){
-            Utils::addErrorMessage('Niestety, podany termin jest juz zarezerwowany');
-            $this->generateView();
+            App::getDB()->insert("calendary", [
+                "idband"=>$idband,
+                "idclient"=>$idclient,
+                "date"=>$date,
+                "reservationDate"=>$currentDate,
+                "city" => $this->form->city
+            ]);
+            Utils::addInfoMessage('Pomyslnie zarezerwowano termin!');
+                $this->generateView();
+
+            }
         } else {
-
-        App::getDB()->insert("calendary", [
-            "idband"=>$idband,
-            "idclient"=>$idclient,
-            "date"=>$date,
-            "reservationDate"=>$currentDate
-        ]);
-        Utils::addInfoMessage('Pomyslnie zarezerwowano termin!');
-            $this->generateView();
-    }
+                Utils::addErrorMessage('costam');
+                $this->generateView();
+            }
     }
 
     public function generateView(){

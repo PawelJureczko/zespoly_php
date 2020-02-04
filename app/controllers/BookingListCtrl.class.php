@@ -67,6 +67,7 @@ class BookingListCtrl {
                 "bands.name",
                 "clients.login",
                 "calendary.date",
+                "calendary.city",
                 "calendary.reservationDate"
         ]);
 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-02-03 23:20:06
+/* Smarty version 3.1.33, created on 2020-02-04 11:48:56
   from 'C:\xampp\htdocs\zespoly\app\views\BookingList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e389c96ed2492_36484111',
+  'unifunc' => 'content_5e394c18e95bc2_22071233',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '80979ed55fc0741c50f2c01455f20e1ae7469f31' => 
     array (
       0 => 'C:\\xampp\\htdocs\\zespoly\\app\\views\\BookingList.tpl',
-      1 => 1580768405,
+      1 => 1580813335,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e389c96ed2492_36484111 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e394c18e95bc2_22071233 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
@@ -28,18 +28,18 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2253992895e389c96ddbca1_56628559', 'bottom');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8700128955e394c18e8a1b3_50698914', 'bottom');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'bottom'} */
-class Block_2253992895e389c96ddbca1_56628559 extends Smarty_Internal_Block
+class Block_8700128955e394c18e8a1b3_50698914 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'bottom' => 
   array (
-    0 => 'Block_2253992895e389c96ddbca1_56628559',
+    0 => 'Block_8700128955e394c18e8a1b3_50698914',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -51,9 +51,10 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 	<tr>
 		<th>id wydarzenia</th>
 		<th>nazwa kapeli</th>
-		<th>login</th>
+		<th>login zamawiającego</th>
 		<th>termin wydarzenia</th>
-		<th>data rezerwacji</th>
+		<th>miejsce wydarzenia</th>
+		<th>data złożenia rezerwacji</th>
 
          <?php if ($_smarty_tpl->tpl_vars['currentRole']->value == 'admin') {?>
 		<th>opcje</th>
@@ -70,6 +71,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['b']->value) {
 </td><td><?php echo $_smarty_tpl->tpl_vars['b']->value["name"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['b']->value["login"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['b']->value["date"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['b']->value["city"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['b']->value["reservationDate"];?>
 </td><?php if ($_smarty_tpl->tpl_vars['currentRole']->value == 'admin') {?><td><a class="btn btn-danger" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 CalendaryDelete/<?php echo $_smarty_tpl->tpl_vars['b']->value['idcalendary'];?>
