@@ -39,8 +39,7 @@ class BookBandCtrl {
         }*/
         date_default_timezone_set('Europe/Berlin');
         $currentDate = date('Y/m/d', time());
-        echo($currentDate);
-        echo($this->form->date);
+
         /*if($this->form->date<$currentDate){
             Utils::addErrorMessage('Nie mozna zarezerwowac wystepu w przeszlosci!');
         }*/
