@@ -19,12 +19,8 @@
 	<a href="{$conf->action_root}UserList" class="pure-menu-heading pure-menu-link">Lista uzytkownikow</a>
 	<a href="{$conf->action_root}BookedBandList" class="pure-menu-heading pure-menu-link">Lista rezerwacji</a>
 	<a href="{$conf->action_root}logout" class="pure-menu-heading pure-menu-link">Wyloguj</a>
-
 	<a class="pure-menu-heading">Zalogowany jako&nbsp:&nbsp&nbsp&nbsp{$currentUser}</a>
 
-
-{else}
-	<a href="{$conf->action_root}loginShow" class="pure-menu-heading pure-menu-link">Zaloguj</a>
 {/if}
 
 </div>

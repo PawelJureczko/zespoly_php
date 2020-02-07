@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-02-04 11:48:56
+/* Smarty version 3.1.33, created on 2020-02-06 11:21:47
   from 'C:\xampp\htdocs\zespoly\app\views\BookingList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e394c18e95bc2_22071233',
+  'unifunc' => 'content_5e3be8bb5ae119_16777133',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '80979ed55fc0741c50f2c01455f20e1ae7469f31' => 
     array (
       0 => 'C:\\xampp\\htdocs\\zespoly\\app\\views\\BookingList.tpl',
-      1 => 1580813335,
+      1 => 1580984506,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e394c18e95bc2_22071233 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e3be8bb5ae119_16777133 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
@@ -28,23 +28,34 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8700128955e394c18e8a1b3_50698914', 'bottom');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5356748025e3be8bb5a1268_24761360', 'bottom');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'bottom'} */
-class Block_8700128955e394c18e8a1b3_50698914 extends Smarty_Internal_Block
+class Block_5356748025e3be8bb5a1268_24761360 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'bottom' => 
   array (
-    0 => 'Block_8700128955e394c18e8a1b3_50698914',
+    0 => 'Block_5356748025e3be8bb5a1268_24761360',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
+
+<div class="bottom-margin">
+<form class="pure-form pure-form-stacked" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+BookedBandList">
+	<legend>Opcje wyszukiwania</legend>
+	<fieldset>
+		<input type="text" placeholder="nazwa kapeli" name="sf_bandname" value="" /><br />
+		<button type="submit" class="btn btn-info">Filtruj</button>
+	</fieldset>
+</form>
+</div>
 
 <table id="tab_people" class="table table-striped table-darkk table-bordered">
 <thead>

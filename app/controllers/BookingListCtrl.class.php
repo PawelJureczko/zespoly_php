@@ -19,16 +19,16 @@ class BookingListCtrl {
         $this->form = new BookingListForm();
     }
 
-    /* public function validate() {
+    public function validate() {
         // 1. sprawdzenie, czy parametry zostały przekazane
         // - nie trzeba sprawdzać
-        $this->form->surname = ParamUtils::getFromRequest('sf_surname');
+        $this->form->bandname = ParamUtils::getFromRequest('sf_bandname');
 
         // 2. sprawdzenie poprawności przekazanych parametrów
         // - nie trzeba sprawdzać
 
         return !App::getMessages()->isError();
-    } */
+    }
 
     public function action_CalendaryDelete(){
         App::getDB()->delete("calendary", [
@@ -42,11 +42,11 @@ class BookingListCtrl {
 
     public function action_BookedBandList() {
 
-       // $this->validate();
+        $this->validate();
 
-        /*$search_params = []; //przygotowanie pustej struktury (aby była dostępna nawet gdy nie będzie zawierała wierszy)
-        if (isset($this->form->surname) && strlen($this->form->surname) > 0) {
-            $search_params['surname[~]'] ='%' . $this->form->surname . '%'; // dodanie symbolu % zastępuje dowolny ciąg znaków na końcu
+        $search_params = []; //przygotowanie pustej struktury (aby była dostępna nawet gdy nie będzie zawierała wierszy)
+        if (isset($this->form->bandname) && strlen($this->form->bandname) > 0) {
+            $search_params['bands.name[~]'] ='%' . $this->form->bandname . '%'; // dodanie symbolu % zastępuje dowolny ciąg znaków na końcu
         }
            $num_params = sizeof($search_params);
         if ($num_params > 1) {
@@ -55,7 +55,7 @@ class BookingListCtrl {
             $where = &$search_params;
         }
         //dodanie frazy sortującej po nazwisku
-        $where ["ORDER"] = "surname";
+        $where ["ORDER"] = "bands.name";
         //wykonanie zapytania */
         try {
             $this->recordsCalendary = App::getDB()->select("calendary", [
@@ -69,7 +69,7 @@ class BookingListCtrl {
                 "calendary.date",
                 "calendary.city",
                 "calendary.reservationDate"
-        ]);
+        ], $where);
 
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');

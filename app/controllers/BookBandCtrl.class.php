@@ -27,11 +27,23 @@ class BookBandCtrl {
             'validator_message' => 'błąd'
         ]);
 
+        $this->form->date = ParamUtils::getFromRequest('date', true, 'Błąd');
         $this->form->city = ParamUtils::getFromRequest('city', true, 'Błąd');
 
         if (empty(trim($this->form->city))){
             Utils::addErrorMessage('Wprowadz miasto');
         }
+
+        /*if(empty(trim($this->form->date))){
+            Utils::addErrorMessage('Wprowadz date');
+        }*/
+        date_default_timezone_set('Europe/Berlin');
+        $currentDate = date('Y/m/d', time());
+        echo($currentDate);
+        echo($this->form->date);
+        /*if($this->form->date<$currentDate){
+            Utils::addErrorMessage('Nie mozna zarezerwowac wystepu w przeszlosci!');
+        }*/
 
         if (App::getMessages()->isError()){
             return false;
@@ -73,7 +85,7 @@ class BookBandCtrl {
             $idclient = SessionUtils::load('sessionID', true);
             //print_r($idclient);
             date_default_timezone_set('Europe/Berlin');
-            $currentDate = date('Y/m/d', time());
+            $currentDate = date('Y-m-d', time());
             //print_r($date);
             $idband = SessionUtils::load('idband', false);
 

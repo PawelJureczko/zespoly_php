@@ -3,6 +3,16 @@
 
 {block name=bottom}
 
+<div class="bottom-margin">
+<form class="pure-form pure-form-stacked" action="{$conf->action_url}BookedBandList">
+	<legend>Opcje wyszukiwania</legend>
+	<fieldset>
+		<input type="text" placeholder="nazwa kapeli" name="sf_bandname" value="" /><br />
+		<button type="submit" class="btn btn-info">Filtruj</button>
+	</fieldset>
+</form>
+</div>
+
 <table id="tab_people" class="table table-striped table-darkk table-bordered">
 <thead>
 	<tr>
